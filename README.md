@@ -61,26 +61,26 @@ List the functionality that your app will include. These can be written as user 
 
 #### Home Page
 
-![](../mockups/HomePage-1.png)
-![](../mockups/HomePage-2.png)
-![](../mockups/HomePage-3.png)
+![](./src/assets/mockups/HomePage-1.png)
+![](./src/assets/mockups/HomePage-2.png)
+![](./src/assets/mockups/HomePage-3.png)
 
 #### Product Page
 
-![](../mockups/ProductPage-1.png)
-![](../mockups/ProductPage-2.png)
+![](./src/assets/mockups/ProductPage-1.png)
+![](./src/assets/mockups/ProductPage-2.png)
 
 #### Cart Page
 
-![](../mockups/CartPage-1.png)
+![](./src/assets/mockups/CartPage-1.png)
 
 #### Our Story Page
 
-![](../mockups/OurStoryPage-1.png)
+![](./src/assets/mockups/OurStoryPage-1.png)
 
 #### Find Us Page
 
-![](../mockups/FindUsPage-1.png)
+![](./src/assets/mockups/FindUsPage-1.png)
 
 ### Data
 
@@ -337,6 +337,8 @@ Parameters:
 - Create product objects for 10-15 items (2)
 
 - Create partials (global, mixins, variables, typography) (1)
+
+- Front-end: Create all routes for all pages (2)
 
 - Front-end: Create Header Component(Responsive) (5)
 
