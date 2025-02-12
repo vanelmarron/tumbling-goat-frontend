@@ -1,0 +1,29 @@
+@use "./mixins"  as *;
+@use "./variables" as *;
+@use "./typography" as *;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0 auto; 
+    background-color: $white-linen;
+  }
+
+  a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+} 
+
+h1 {
+    font-family: "Fontin";
+    font-size: 2rem;
+    line-height: 2rem;
+    font-weight: 600;
+}
