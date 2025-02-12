@@ -4,7 +4,7 @@ Tumbling Goat
 
 ## Overview
 
-The Tumbling Goat provides pottery artists with a digital platform to connect with customers, market their products, and share details about events and selling locations. By streamlining marketing and sales efforts, the app empowers artists to focus on their craft while reaching a broader, more engaged audience.
+Tumbling Goat provides pottery artists with a digital platform to connect with customers, market their products, and share details about events and selling locations. By streamlining marketing and sales efforts, the app empowers artists to focus on their craft while reaching a broader, more engaged audience.
 
 ### Problem Space
 
@@ -12,14 +12,13 @@ Pottery artists invest countless hours creating their unique pieces, but reachin
 
 ### User Profile
 
-Pottery Artists: Independent artists and small pottery business owners seeking to expand their customer base, promote events, and streamline product sales.
-Art Enthusiasts & Shoppers: Individuals interested in discovering unique, handmade pottery and supporting local artists.
+- Pottery Artists: Independent artists and small pottery business owners seeking to expand their customer base, promote events, and streamline product sales.
+
+- Art Enthusiasts & Shoppers: Individuals interested in discovering unique, handmade pottery and supporting local artists.
 
 ### Features
 
-List the functionality that your app will include. These can be written as user stories or descriptions with related details. Do not describe _how_ these features are implemented, only _what_ needs to be implemented.
-
-- As a user, I want to be able to look for items on the main page and search for keywords.
+- As a user, I want to be able to see an overview of all items available on the main page and easily search for specific items.
 - As a user, I want to be able to sort all the items according to categories and collections.
 - As a user, I want to be able to access more details on a specific item when I click on it.
 - As a user, I want to be able to add an item to my cart and select the quantity.
@@ -51,23 +50,32 @@ List the functionality that your app will include. These can be written as user 
 
 ### Sitemap
 
-- Home Page
-- Product Page
-- Cart Page
-- Find Us Page
-- Our Story Page
+- Home Page (Priority #1)
+- Product Page (Priority #2)
+- Cart Page (Priority #3)
+- Find Us Page (Priority #4)
+- Our Story Page (Priority #5)
 
 ### Mockups
 
 #### Home Page
 
 ![](./src/assets/mockups/HomePage-1.png)
+
+#### Home Page // Dropdown Shop Menu
+
 ![](./src/assets/mockups/HomePage-2.png)
+
+##### Home Page // Footer
+
 ![](./src/assets/mockups/HomePage-3.png)
 
 #### Product Page
 
 ![](./src/assets/mockups/ProductPage-1.png)
+
+#### Product Page // Review section
+
 ![](./src/assets/mockups/ProductPage-2.png)
 
 #### Cart Page
@@ -88,73 +96,41 @@ Product Object :
 
 ```
  {
-    "id": "1",
+    "id": 1,
     "name": "Coffee Mug - Begbie",
-    "photo": "begbie_mug.jpg",
+    "photo": "begbie_mug.png",
     "price": "$45",
     "stock": 8,
     "category": "Mug",
     "collection": "Begbie Collection",
-    "brief-description":
-      "A beautifully handcrafted coffee mug inspired by the majestic Mount Begbie in Revelstoke, BC.",
-    "full-description":
-      "Embrace the rugged beauty of the outdoors with this earthy, artisan-crafted mug. The design draws inspiration from the textured landscape and natural tones of Begbie Mountain, making it both a visual and tactile delight. With its sturdy form and comfortable grip, this mug is perfect for savoring your morning coffee or afternoon tea. A true piece of craftsmanship that brings the essence of nature to your daily routine.",
+    "brief-description": "A beautifully handcrafted coffee mug inspired by the majestic Begbie Mountain in Revelstoke.",
+    "full-description": "Embrace the rugged beauty of the outdoors with this earthy, artisan-crafted mug. The design draws inspiration from the textured landscape and natural tones of Begbie Mountain, making it both a visual and tactile delight. With its sturdy form and comfortable grip, this mug is perfect for savoring your morning coffee or afternoon tea. A true piece of craftsmanship that brings the essence of nature to your daily routine.",
     "care-tips": [
-      {
-        "id": "1",
-        "tip": "Hand wash only to preserve the unique glaze and finish."
-      },
-      {
-        "id": "2",
-        "tip":  "Not dishwasher safe."
-      },
-      {
-        "id": "3",
-        "tip":  "Avoid sudden temperature changes, such as pouring boiling liquids into a cold mug."
-      },
-      {
-        "id": "4",
-        "tip": "Use a soft sponge and mild detergent for cleaning."
-      }
+      "Hand wash only to preserve the unique glaze and finish.",
+      "Not dishwasher safe.",
+      "Avoid sudden temperature changes, such as pouring boiling liquids into a cold mug.",
+      "Use a soft sponge and mild detergent for cleaning.",
+      "Do not soak for extended periods.",
+      "Dry thoroughly to prevent moisture stains."
     ],
-    reviews: [
+    "reviews": [
       {
-        "id": "1",
+        "id": "87077de3-3e4e-45a5-a40d-cd1b0194185c",
         "name": "Jessie Proulx",
         "city": "Amqui",
-        "province": "Quebec",
-        "review": "This is Jessie's review",
-        "rate": "5"
-      },
-      {
-        "id": "2",
-        "name": "John Doe",
-        "city": "Revelstoke",
-        "province": "Brisish Columbia",
-        "review": "This is John's review",
-        "rate": "4"
+        "province": "Québec",
+        "review": "J’adore les projets de Tumbling Goat. Que ce soit les tasses simples, classiques qui vieilliront bien ou celles avec des montagnes qui nous font rêver, ou les bols pour manger nos croustilles favorites, les pièces sont uniques et font tourner les têtes! Un cadeau à se faire soi-même ou à offrir pour faire découvrir une artiste talentueuse! ",
+        "rate": 5,
+        "timestamp": 1739386479
       }
     ],
-    tags: [
-      {
-        "id": "1"
-        "tag": "handmade"
-      },
-      {
-        "id": "2"
-        "tag": "begbie"
-      },
-       {
-        "id": "3"
-        "tag": "revelstoke"
-      }
-      ],
-  }
+    "tags": ["handmade", "begbie", "mountain", "revelstoke"]
+  },
 ```
 
 ### Endpoints
 
-**GET /products**
+**GET /api/products**
 
 - Get full list of products for home page
 
@@ -171,10 +147,11 @@ Response:
     "collection": "Begbie Collection",
     "brief-description":
       "A beautifully handcrafted coffee mug inspired by the majestic Mount Begbie in Revelstoke, BC.",
+    "tags": ["handmade", "begbie", "mountain", "revelstoke"]
 }]
 ```
 
-**GET /products/:id**
+**GET /api/products/:id**
 
 - Get individual product details for Product Page
 
@@ -191,33 +168,16 @@ Response
     "photo": "begbie_mug.jpg",
     "price": "$45",
     "stock": 8,
-    "category": "Mug",
-    "collection": "Begbie Collection",
-    "brief-description":
-      "A beautifully handcrafted coffee mug inspired by the majestic Mount Begbie in Revelstoke, BC.",
     "full-description":
       "Embrace the rugged beauty of the outdoors with this earthy, artisan-crafted mug. The design draws inspiration from the textured landscape and natural tones of Begbie Mountain, making it both a visual and tactile delight. With its sturdy form and comfortable grip, this mug is perfect for savoring your morning coffee or afternoon tea. A true piece of craftsmanship that brings the essence of nature to your daily routine.",
-    "care-tips": [
-      {
-        "id": "1",
-        "tip": "Hand wash only to preserve the unique glaze and finish."
-      },
-      {
-        "id": "2",
-        "tip":  "Not dishwasher safe."
-      },
-      {
-        "id": "3",
-        "tip":  "Avoid sudden temperature changes, such as pouring boiling liquids into a cold mug."
-      },
-      {
-        "id": "4",
-        "tip": "Use a soft sponge and mild detergent for cleaning."
-      }
+   "care-tips": [
+      "Tip 1",
+      "Tip 2",
+      "Tip 3"
     ],
     "reviews": [
       {
-        "id": "1",
+        "id": "uuid",
         "name": "Jessie Proulx",
         "city": "Amqui",
         "province": "Quebec",
@@ -225,69 +185,30 @@ Response
         "rate": "5"
       },
       {
-        "id": "2",
+        "id": "uuid",
         "name": "John Doe",
         "city": "Revelstoke",
         "province": "Brisish Columbia",
         "review": "This is John's review",
         "rate": "4"
       }
-    ],
-    "tags": [
-      {
-        "id": "1"
-        "tag": "handmade"
-      },
-      {
-        "id": "2"
-        "tag": "begbie"
-      },
-       {
-        "id": "3"
-        "tag": "revelstoke"
-      }
-      ],
+    ]
   }
 ```
 
-**GET /products/:id/reviews**
-
-Response:
-
-```
-  "id": "1",
-  "name": "Coffee Mug - Begbie",
-  "reviews": [
-      {
-        "id": "1",
-        "name": "Jessie Proulx",
-        "city": "Amqui",
-        "province": "Quebec",
-        "review": "This is Jessie's review",
-        "rate": "5"
-      },
-      {
-        "id": "2",
-        "name": "John Doe",
-        "city": "Revelstoke",
-        "province": "Brisish Columbia",
-        "review": "This is John's review",
-        "rate": "4"
-      }
-    ],
-```
-
-**POST /products/:id/reviews**
+**POST /api/products/:id/reviews**
 
 - Post review on product page
 
-Parameters: 
+Parameters:
+
 - id: Product id as a number
 
 Response:
+
 ```
 {
-        "id": "2",
+        "id": "uuid",
         "name": "John Doe",
         "city": "Revelstoke",
         "province": "Brisish Columbia",
@@ -296,17 +217,19 @@ Response:
       }
 ```
 
-**PUT /products/:id/reviews/:id**
+**PUT /api/products/:id/reviews/:reviewId**
 
 - Edit a comment after posting.
 
-Parameters: 
-- id: Product id and review id as a number 
+Parameters:
 
-Response: 
+- id: Product id and review id as a number
+
+Response:
+
 ```
 {
-        "id": "2",
+        "id": "uuid",
         "name": "John Doe",
         "city": "Revelstoke",
         "province": "Brisish Columbia",
@@ -315,12 +238,14 @@ Response:
       }
 ```
 
-**DELETE /products/:id/reviews/:id**
+**DELETE /api/products/:id/reviews/:reviewId**
 
-- Delete a review after posting it. 
+- Delete a review after posting it.
 
-Parameters: 
-- id: Product id and review id as a number 
+Parameters:
+
+- id: Product id and review id as a number
+
 ```
 {
       }
@@ -329,10 +254,12 @@ Parameters:
 ## Roadmap
 
 - Create client (1)
-    - react project with routes and boilerplate pages
+
+  - react project with routes and boilerplate pages
 
 - Create server (1)
-    - express project with routing, with placeholder 200 responses
+
+  - express project with routing, with placeholder 200 responses
 
 - Create product objects for 10-15 items (2)
 
@@ -376,5 +303,6 @@ Parameters:
 - Payment Options (CC, Paypal, Apple Pay)
 - Create Terms & Conditions Page
 - Create Event Page
-    - Share to social
-    - Add to my calendar
+  - Share to social
+  - Add to my calendar
+- Create Interactive Blog Page
