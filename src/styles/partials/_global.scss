@@ -22,10 +22,14 @@ ul {
 } 
 
 h1 {
-    font-family: "Fontin";
-    font-size: 2rem;
+    font-family: "Oliver";
+    font-size: 2.5rem;
     line-height: 2rem;
     font-weight: 600;
+
+    @include tablet {
+        font-size: 3.5rem;
+    }
 }
 
 input {
