@@ -64,13 +64,13 @@
 // FORM FIELDS
 
 @mixin form-default {
-    border: 2px solid $desert-orange;
+    border: 1.5px solid $jaffa;
 }
 
 @mixin form-empty {
-    border: 2px solid #B10606;
+    border: 1.5px solid #B10606;
 }
 
 @mixin form-selected {
-    border: 2px solid $coriander;
+    border: 2px solid $gold;
 }

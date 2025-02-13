@@ -27,3 +27,15 @@ h1 {
     line-height: 2rem;
     font-weight: 600;
 }
+
+input {
+    font-family: "Oliver";
+    background-color: $white-linen;
+    @include form-default;
+    @include body-typo;
+
+    &:focus {
+        @include form-selected;
+        outline: none;
+    }
+}
