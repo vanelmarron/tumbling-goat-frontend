@@ -1,0 +1,108 @@
+@use "../../styles/partials/global";
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.hero {
+    background-image: url(../../assets/images/hero-background1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 30vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 1rem;
+    gap: 2rem;
+    max-width: 1216px;
+
+    @include tablet {
+        height: 40vh;
+        padding: 1rem 2rem;
+    }
+
+    @include desktop {
+        margin: auto;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0; 
+        background-color: rgba(255, 255, 255, 0.6);
+        z-index: 1; 
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        text-align: center;
+
+        @include desktop {
+            width: 70%;
+        }
+    }
+
+    &__goat {
+        display: flex;
+        justify-content: center;
+        height: 8rem;
+        width: fit-content;
+        animation: tumble 3s ease-in-out infinite;
+        z-index: 3;
+
+        @include tablet {
+            height: 11rem;
+        }
+    }
+
+    &__name {
+        color: $black;
+        position: relative;
+        z-index: 2;
+    }
+
+    &__bottom {
+        position: relative;
+    }
+
+    &__text {
+        display: none;
+
+        @include desktop {
+            display: flex;
+            justify-content: center;
+            @include title-typo;
+            width: 40%;
+            position: relative;
+            right: -15rem;
+            z-index: 3;
+        }
+    }
+
+    &__shape {
+        display: none;
+
+        @include desktop{
+            display: flex;
+            height: 20rem;
+            position: absolute;
+            bottom: -5rem;
+            right: 8rem;
+            z-index: 2;
+        }
+        
+    }
+}
+
+@keyframes tumble {
+    0% { transform: rotate(0deg) translateX(0); }
+    25% { transform: rotate(-5deg) translateX(-3px); }
+    50% { transform: rotate(5deg) translateX(3px); }
+    75% { transform: rotate(-5deg) translateX(-3px); }
+    100% { transform: rotate(0deg) translateX(0); }
+}
