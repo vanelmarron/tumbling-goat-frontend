@@ -12,6 +12,8 @@
 
   @include tablet {
     padding: 1.5rem 2rem;
+    position: relative;
+    z-index: 1000;
   }
 
   @include desktop {
@@ -124,24 +126,16 @@
     justify-content: flex-start;
     @include title-typo;
     gap: 2rem;
+    position: relative;
   }
 
   &__item {
     cursor: pointer;
     position: relative;
-
-    &:hover, 
-    &:active {
-      background-image: url("../../assets/images/forme2.png");
-      background-size: 3rem;
-      background-repeat: no-repeat;
-      background-position: center;
-    }
   }
 
   &__search {
     display: none;
-    
 
     @include tablet {
       display: flex;
@@ -161,4 +155,67 @@
       opacity: 0.7;
     }
   }
+}
+
+.header-sub {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: $white-linen;
+  width: 200px;
+  padding: 0.5rem;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transform: translateY(-10px);
+
+  &__item {
+    position: relative; 
+    &:hover {
+      background-color: darken($white-linen, 10%);
+    }
+
+    &:hover > .header-category,
+    &:hover > .header-collection {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(0);
+    }
+  }
+}
+
+.header__item:hover .header-sub {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.header-category,
+.header-collection {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background: $jaffa;
+  color: $white-linen;
+  width: 180px;
+  padding: 0.5rem;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transform: translateX(-10px);
+
+  &__item {
+    &:hover {
+      background-color: darken($jaffa, 10%);
+    }
+  }
+}
+
+.header-sub__item:hover .header-category,
+.header-sub__item:hover .header-collection {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
 }

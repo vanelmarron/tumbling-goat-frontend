@@ -12,6 +12,23 @@ const baseURL= import.meta.env.VITE_API_URL;
 function HomePage() {
 
   const [products, setProducts] = useState([]);
+  const [searchItem, setSearchItem] = useState("");
+  const [selectedFilter, setSelectedFilter] = useState(null);
+
+  const filteredProducts = products.filter((product) => {
+    if (searchItem) {
+      return product.name.toLowerCase().includes(searchItem.toLowerCase());
+    }
+  
+    if (selectedFilter) {
+        return (
+          product.category?.trim().toLowerCase() === selectedFilter.trim().toLowerCase() ||
+          product.collection?.trim().toLowerCase() === selectedFilter.trim().toLowerCase()
+      );
+    }
+  
+    return true; 
+  });
 
   useEffect(() => {
       const getAllProducts = async () => {
@@ -25,12 +42,11 @@ function HomePage() {
       getAllProducts();
   }, [])
 
-
   return (
     <main className="main">
-      <Header products={products} baseURL={baseURL} />
+      <Header setSearchItem={setSearchItem} setSelectedFilter={setSelectedFilter} products={products} baseURL={baseURL} />
       <Hero />
-      <ProductList products={products} baseURL={baseURL}/>
+      <ProductList products={filteredProducts} baseURL={baseURL}/>
     </main>
   )
 }
