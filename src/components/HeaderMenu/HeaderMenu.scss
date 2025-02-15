@@ -3,48 +3,114 @@
 @use "../../styles/partials/variables" as *;
 
 .header-menu {
-    @include title-typo;
+  @include title-typo;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  gap: 0.5rem;
+  padding-top: 1rem;
+  z-index: 1000;
+
+  @include tablet {
+    display: none;
+  }
+
+  &__list {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
     gap: 0.5rem;
+    width: 33%;
+    position: relative;
+  }
 
-    @include tablet {
-        display: none;
+  &__item {
+    cursor: pointer;
+    position: relative;
+    padding: 0.5rem;
+
+    &:hover {
+      background-color: $jaffa;
+      background-size: 3rem;
+      background-repeat: no-repeat;
+      background-position: calc(5% - 0.5rem) center;
     }
+  }
 
-    &__list {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        width: 33%;
+  &__search {
+    padding: 0.5rem 0.75rem;
+    border: 1.5px solid $jaffa;
+    border-radius: 20px;
+    background-image: url(../../assets/images/etourdi.png);
+    background-repeat: no-repeat;
+    background-position: calc(100% - 0.5rem) center;
+    background-size: 2.5rem;
+
+    &::placeholder {
+      color: $jaffa;
+      opacity: 0.8;
     }
+  }
+}
 
-    &__item {
-        cursor: pointer;
-        position: relative;
+.sub-menu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background-color: $white-linen;
+  padding: 0.5rem;
+  width: 180px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transform: translateX(-10px);
 
-        &:hover {
-            background-image: url("../../assets/images/forme2.png");
-            background-size: 3rem;
-            background-repeat: no-repeat;
-            background-position: calc(5% - 0.5rem) center;
-        }
+  .header-menu__item:hover > & {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+  }
+
+  &__item {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    position: relative;
+
+    &:hover {
+      background-color: darken($white-linen, 10%);
     }
+  }
+}
 
-    &__search {
-        padding: 0.5rem 0.75rem;
-        border: 1.5px solid $jaffa;
-        border-radius: 20px;
-        background-image: url(../../assets/images/etourdi.png);
-        background-repeat: no-repeat;
-        background-position: calc(100% - 0.5rem) center;
-        background-size: 2.5rem;
+.sub-category,
+.sub-collection {
+  position: absolute;
+  top: 0.5rem;
+  left: 100%;
+  background-color: $jaffa;
+  color: $white-linen;
+  list-style: none;
+  padding: 0.5rem;
+  width: 160px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transform: translateX(-10px);
 
-        &::placeholder {
-            color: $jaffa;
-            opacity: 0.8;
-        }
+  .sub-menu__item:hover > & {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+    z-index: 2;
+  }
+
+  &__item {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: darken($jaffa, 10%);
     }
+  }
 }
