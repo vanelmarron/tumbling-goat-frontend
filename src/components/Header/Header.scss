@@ -15,7 +15,6 @@
   }
 
   @include desktop {
-    padding: 1.5rem 0;
     margin: auto;
   }
 
@@ -142,6 +141,7 @@
 
   &__search {
     display: none;
+    
 
     @include tablet {
       display: flex;
@@ -152,11 +152,13 @@
       background-repeat: no-repeat;
       background-position: calc(100% - 0.5rem) center;
       background-size: 2.5rem;
+      max-width: 10rem;
+      @include body-small;
+    }
 
-      &::placeholder {
-        color: $jaffa;
-        opacity: 0.8;
-      }
+    &::placeholder {
+      color: $jaffa;
+      opacity: 0.7;
     }
   }
 }

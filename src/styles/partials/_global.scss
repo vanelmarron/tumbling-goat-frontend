@@ -11,6 +11,7 @@
 body {
     margin: 0 auto; 
     background-color: $white-linen;
+    font-family: "Fontin", "Arial, Helvetica, sans-serif";
   }
 
   a {
@@ -30,6 +31,10 @@ h1 {
     @include tablet {
         font-size: 3.5rem;
     }
+}
+
+h2 {
+    @include subheader-typo;
 }
 
 input {

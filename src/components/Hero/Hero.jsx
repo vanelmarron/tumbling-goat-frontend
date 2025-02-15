@@ -13,10 +13,10 @@ function Hero() {
       </div>
       <div className="hero__bottom">
         <p className="hero__text">
-          Formed by hand, shaped by perseverance, and crafted to be cherished,
+          Pottery crafted to be cherished,
           just as nature intended.
         </p>
-        <img src={shape} alt="Shape" className="hero__shape"/>
+        <img src={shape} alt="Shape" className="hero__shape" />
       </div>
     </div>
   );
