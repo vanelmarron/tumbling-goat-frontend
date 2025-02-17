@@ -12,7 +12,7 @@ function Footer() {
         <img
           src={tumblingGoat}
           alt="Tumbling Goat Logo"
-          className="footer__logo footer__logo--mobile"
+          className="footer__logo footer__logo"
         />
       </div>
       <div className="footer__content-wrapper">
@@ -30,7 +30,7 @@ function Footer() {
         </ul>
       </div>
       <div className="contact">
-        <p classNam="contact__text">Contact Us:</p>
+        <p className="contact__text">Contact Us:</p>
         <div className="contact__links">
             <img src={mailIcon} alt="Email us" className="contact__email" />
             <img src={instagramIcon} alt="Find us on Instagram" className="contact__instagram"  />
@@ -39,11 +39,6 @@ function Footer() {
       </div>
       </div>
       <div className="footer__logo-wrapper--tablet">
-        <img
-          src={tumblingGoat}
-          alt="Tumbling Goat Logo"
-          className="footer__logo footer__logo--tablet"
-        />
       </div>
     </footer>
   );

@@ -1,16 +1,15 @@
 import React from 'react';
-import "./HomePage.scss";
+import "./ProductsPage.scss";
 import Header from "../../components/Header/Header";
 import Hero from '../../components/Hero/Hero';
 import ProductList from "../../components/ProductList/ProductList";
-import Footer from "../../components/Footer/Footer";
 
 import { useState, useEffect } from 'react';
 import axios from "axios";
 
 const baseURL= import.meta.env.VITE_API_URL;
 
-function HomePage() {
+function ProductsPage() {
 
   const [products, setProducts] = useState([]);
   const [searchItem, setSearchItem] = useState("");
@@ -48,9 +47,8 @@ function HomePage() {
       <Header setSearchItem={setSearchItem} setSelectedFilter={setSelectedFilter} products={products} baseURL={baseURL} />
       <Hero />
       <ProductList products={filteredProducts} baseURL={baseURL}/>
-      <Footer / >
     </main>
   )
 }
 
-export default HomePage;
+export default ProductsPage;

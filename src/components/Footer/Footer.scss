@@ -11,8 +11,8 @@
   flex-direction: column;
 
   @include tablet {
+    flex-direction: row-reverse;
     justify-content: space-between;
-    flex-direction: column-reverse;
     padding: 2rem;
     max-width: 1216px;
     margin: auto;
@@ -21,22 +21,7 @@
 
   &__logo {
     height: 5rem;
-
-    &--mobile {
-      margin-bottom: 2rem;
-
-      @include tablet {
-        display: none;
-      }
-    }
-
-    &--tablet {
-      display: none;
-
-      @include tablet {
-        display: flex;
-      }
-    }
+    margin-bottom: 2rem;
   }
 
   &__content-wrapper {
@@ -46,12 +31,14 @@
     gap: 1rem;
 
     @include tablet {
-        flex-direction: row;
-        justify-content: space-between;
-        gap: 4rem;
-        flex-grow: 1;
+      flex-direction: row;
+      justify-content: space-evenly;
+      gap: 2rem;
+      flex-grow: 1;
+
+      @include desktop {
         padding-right: 3rem;
-        
+      }
     }
   }
 }

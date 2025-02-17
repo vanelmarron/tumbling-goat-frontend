@@ -1,4 +1,4 @@
-import React from "react";
+import {Link, Navigate } from "react-router-dom";
 import "./ProductListCard.scss";
 
 import randomImage from "../../assets/images/chevre_1.png";
@@ -25,7 +25,9 @@ function ProductListCard({ product, baseURL }) {
           <p className="product-card__number-items"> 0 </p>
           <button className="product-card__more-button"> + </button>
         </div> */}
+        <Link to={`/products/${product.id}`}>
         <button className="product-card__more-details">More Details</button>
+        </Link>
         <button className="product-card__add-to-cart">Add to Cart</button>
       </div>
     </article>
