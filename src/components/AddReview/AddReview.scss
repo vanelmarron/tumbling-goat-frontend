@@ -1,0 +1,113 @@
+@use "../../styles/partials/global";
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.add-review {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 25%;
+  background-color: $white-linen;
+  border: 2px solid $jaffa;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+
+  &__title {
+    padding-bottom: 2rem;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    @include tablet {
+      flex-direction: row;
+      gap: 1rem;
+    }
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    
+    @include tablet {
+        width: 30%;
+    }
+  }
+
+  &__input {
+    padding: 0.25rem;
+    border-radius: 5px;
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    @include tablet {
+        width: 70%;
+    }
+  }
+
+  &__textarea {
+    height: 10rem;
+    resize: none;
+    padding: 0.25rem;
+    border-radius: 5px;
+
+    @include tablet {
+        height: 7rem;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    gap: 1rem;
+
+    @include tablet {
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+  }
+
+  &__submit {
+    @include button;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 5.563rem;
+    padding: 0.25rem 1rem;
+    border: 2px solid $jaffa;
+    border-radius: 20px;
+    color: $white-linen;
+    background-color: $jaffa;
+  }
+
+  &__cancel {
+    @include button;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.25rem 1rem;
+    min-width: 2.625rem;
+    border: 2px solid $jaffa;
+    border-radius: 20px;
+    color: $jaffa;
+    background-color: $white-linen;
+  }
+}

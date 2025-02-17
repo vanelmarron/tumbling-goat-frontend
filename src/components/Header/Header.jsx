@@ -97,7 +97,7 @@ function Header({ setSearchItem, setSelectedFilter }) {
                   </ul>
                 )}
               </li>
-              <li className="header__item">OUR STORY</li>
+              
               <li className="header__item">FIND US</li>
             </ul>
           </div>
