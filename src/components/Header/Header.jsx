@@ -1,6 +1,6 @@
 import "./Header.scss";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import HeaderMenu from "../HeaderMenu/HeaderMenu"
 
@@ -13,12 +13,20 @@ function Header({ setSearchItem, setSelectedFilter }) {
   const [activeSubMenu, setActiveSubMenu] = useState(null);
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const toggleMobileMenu = () => {
     setMenuIsOpen((prev) => !prev);
   };
 
   const toggleMenu = (menu) => {
+    if (menu === "SHOP") {
+      if (location.pathname !== "/products") {
+        navigate("/products");
+        return;
+      }
+    }
     setActiveMenu((prev) => (prev === menu ? null : menu));
   };
 
@@ -41,16 +49,19 @@ function Header({ setSearchItem, setSelectedFilter }) {
         <img src={shoppingCart} alt="Cart" className="header__cart--mobile" />
 
         <div className="header__left">
+          <Link to="/">
           <img
             src={tumblingGoatLogo}
             alt="Tumbling Goat Logo"
             className="header__logo-tablet"
           />
+          </Link>
           <div className="header__options">
             <ul className="header__list">
               <li
                 className="header__item"
-                onMouseEnter={() => toggleMenu("SHOP")}
+                onClick={() => toggleMenu("SHOP")} 
+                onMouseEnter={() => location.pathname === "/products" && toggleMenu("SHOP")}
                 onMouseLeave={() => toggleMenu(null)}
               >
                 SHOP
@@ -104,12 +115,14 @@ function Header({ setSearchItem, setSelectedFilter }) {
         </div>
 
         <div className="header__right">
-          <input
+          {location.pathname === "/products" && (
+            <input
             type="text"
             placeholder="Search..."
             className="header__search"
             onChange={(event) => setSearchItem(event.target.value)}
           />
+          )}
           <div className="header__cart-wrapper">
             <p className="header__cart-text">Cart</p>
             <img
