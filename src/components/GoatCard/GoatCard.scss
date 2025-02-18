@@ -1,0 +1,80 @@
+@use "../../styles/partials/global";
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.goat-card {
+  padding: 1rem;
+  width: 100%;
+  max-width: 1216px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+
+  @include tablet {
+    flex-direction: row;
+    gap: 6rem;
+    margin: 2rem auto;
+  }
+
+  &__text {
+    @include body-typo;
+  }
+
+  &__quote {
+    @include body-small;
+    font-style: italic;
+  }
+
+  &__profile {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    height: 17rem;
+
+    @include tablet {
+        width: 100%;
+        height: auto;
+        align-items: flex-start;
+    }
+  }
+
+&__photo-goat {
+    position: absolute;
+    width: fit-content;
+    height: 10rem;
+   
+    z-index: 4;
+}
+
+&__spinning {
+    position: absolute;
+    height: 8rem;
+    z-index: 3;
+    animation: horizontal-spin 3s linear infinite;
+}
+
+&__shape-two {
+    position: absolute;
+    height: 12rem;
+    animation: spinClockwise 12s linear infinite;
+    z-index: 2;
+}
+
+&__details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+
+}
+
+@keyframes spinClockwise {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

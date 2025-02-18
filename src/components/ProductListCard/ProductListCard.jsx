@@ -1,36 +1,38 @@
-import {Link, Navigate } from "react-router-dom";
+import {Link } from "react-router-dom";
 import "./ProductListCard.scss";
 
-import randomImage from "../../assets/images/chevre_1.png";
 
-function ProductListCard({ product, baseURL }) {
+function ProductListCard({ product }) {
   return (
-    <article className="product-card">
-      <div className="product-card__image-wrapper">
-        <img
-          src={product.photo}
-          alt={product.briefdescription}
-          className="product-card__image"
-        />
-        <p className="product-card__price--mobile">{product.price}</p>
+    <li className="product-card">
+      <div className="product-card__flip-container">
+        <div className="product-card__flipper">
+          <div className="product-card__front">
+            <img
+              src={product.photo}
+              alt={product.name}
+              className="product-card__image"
+            />
+          </div>
+          <div className="product-card__back">
+          <img
+              src={product.photo}
+              alt={product.name}
+              className="product-card__back-image"
+            />
+             <div className="product-card__overlay"></div>
+          <Link to={`/products/${product.id}`} className="product-card__button">
+            <p className="product-card__back-text">Quick View</p>
+            </Link>
+          </div>
+        </div>
       </div>
       <div className="product-card__description-wrapper">
         <h3 className="product-card__name">{product.name}</h3>
         <p className="product-card__description">{product.briefdescription}</p>
-        <p className="product-card__price--tablet">{product.price}</p>
+        <p className="product-card__price">CA{product.price}.00</p>
       </div>
-      <div className="product-card__bottom">
-        {/* <div className="product-card__counter"> */}
-          {/* <button className="product-card__less-button"> - </button>
-          <p className="product-card__number-items"> 0 </p>
-          <button className="product-card__more-button"> + </button>
-        </div> */}
-        <Link to={`/products/${product.id}`}>
-        <button className="product-card__more-details">More Details</button>
-        </Link>
-        <button className="product-card__add-to-cart">Add to Cart</button>
-      </div>
-    </article>
+    </li>
   );
 }
 
