@@ -4,25 +4,60 @@
 
 .artist-card {
   padding: 1rem;
+  height: 30rem;
   width: 100%;
+  perspective: 1000px;
+  cursor: pointer;
   max-width: 1216px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
 
-  @include tablet {
-    flex-direction: row;
-    gap: 4rem;
-    margin: 2rem auto;
+  &__inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.7s ease-in-out;
   }
 
-  &__text {
-    @include body-typo;
+  &.flipped &__inner {
+    transform: rotateY(180deg);
   }
 
-  &__quote {
-    @include body-small;
-    font-style: italic;
+  &__front,
+  &__back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  &__front {
+    background-color: $jaffa;
+    color: $white-linen;
+  }
+
+  &__back {
+    transform: rotateY(180deg);
+  }
+
+  &__front-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+
+    @include tablet {
+      gap: 4rem;
+    }
   }
 
   &__profile {
@@ -30,59 +65,77 @@
     position: relative;
     justify-content: center;
     align-items: center;
-    height: 17rem;
+    width: 10rem;
+    height: 10rem;
+    margin-bottom: 1rem;
 
     @include tablet {
-        width: 100%;
-        height: auto;
-        align-items: flex-start;
+      align-items: flex-start;
     }
   }
 
-&__photo-artist {
+  &__photo-artist {
     position: absolute;
     width: fit-content;
     height: 10rem;
     border-radius: 50%;
     z-index: 4;
-}
+  }
 
-&__shape-one {
+  &__shape-one {
     position: absolute;
     height: 11.5rem;
     z-index: 3;
     animation: spinClockwise 10s linear infinite;
-}
+  }
 
-&__shape-two {
+  &__shape-two {
     position: absolute;
     height: 12rem;
     animation: spinCounterClockwise 12s linear infinite;
-}
+  }
 
-&__details {
+  &__learn-more {
+    margin: 1rem auto;
+    width: 8rem;
+    border: 2px solid $gold;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+  }
+
+  &__back {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1rem;
-}
+    padding: 1rem 2rem;
+    gap: 2rem;
+  }
 
+  &__text {
+    font-size: 1.313rem;
+  }
+
+  &__quote {
+    background-color: $jaffa;
+    color: $white-linen;
+    border-radius: 10px;
+    padding: 1rem;
+    width: 80%;
+  }
 }
 
 @keyframes spinClockwise {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes spinCounterClockwise {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(-360deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
 }

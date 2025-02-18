@@ -1,0 +1,55 @@
+@use "../../styles/partials/global";
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.shop-card {
+  background-color: $gold;
+  border-radius: 10px;
+  height: auto;
+  padding: 1rem;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+
+  @include tablet {
+    flex-direction: row;
+    height: 20rem;
+  }
+
+  &__text-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__title {
+    color: $white-linen;
+  }
+
+  &__intro {
+    color: $white-linen;
+    font-size: 1rem;
+
+    @include tablet {
+        font-size: 1.25rem;
+    }
+  }
+
+  &__image {
+    height: 18rem;
+    border-radius: 10px;
+  }
+
+  &__button {
+    margin: 1rem 0;
+    width: 8rem;
+    border: 2px solid $coriander;
+    color: $white-linen;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    text-align: center;
+  }
+}

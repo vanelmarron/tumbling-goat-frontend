@@ -3,78 +3,104 @@
 @use "../../styles/partials/variables" as *;
 
 .goat-card {
-  padding: 1rem;
-  width: 100%;
-  max-width: 1216px;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem;
+  height: auto;
+  max-width: 1216px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 1rem;
 
   @include tablet {
-    flex-direction: row;
-    gap: 6rem;
     margin: 2rem auto;
   }
 
-  &__text {
-    @include body-typo;
-  }
+  &__photo-goat {
+    width: fit-content;
+    height: 7rem;
+}
 
-  &__quote {
-    @include body-small;
-    font-style: italic;
-  }
-
-  &__profile {
+  &__wrapper {
     display: flex;
-    position: relative;
     justify-content: center;
     align-items: center;
-    height: 17rem;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
 
     @include tablet {
-        width: 100%;
-        height: auto;
-        align-items: flex-start;
+      gap: 3rem;
     }
   }
 
-&__photo-goat {
-    position: absolute;
-    width: fit-content;
-    height: 10rem;
-   
-    z-index: 4;
-}
+  &__top {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+  }
 
-&__spinning {
-    position: absolute;
-    height: 8rem;
-    z-index: 3;
-    animation: horizontal-spin 3s linear infinite;
-}
-
-&__shape-two {
-    position: absolute;
-    height: 12rem;
-    animation: spinClockwise 12s linear infinite;
-    z-index: 2;
-}
-
-&__details {
+  &__bottom {
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 1rem;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: $jaffa;
+    border-radius: 10px;
+    padding: 1rem;
+  }
+
+  &__text {
+    font-size: 1.2rem;
+    color: $white-linen;
+    height: 17rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+
+    @include tablet {
+
+      height: 10rem;
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  &__pagination {
+    @include title-typo;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+
+  &__forward, 
+  &__back {
+    height: 32px;
+    cursor: pointer;
+
+    &--disabled {
+      opacity: 0.5;
+      pointer-events: none; 
+      cursor: not-allowed;
+    }
+  }
 }
 
-}
-
-@keyframes spinClockwise {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}

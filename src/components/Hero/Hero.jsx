@@ -17,13 +17,6 @@ function Hero() {
         <img src={tumblingGoat} alt="Tumbling Goat" className="hero__goat" />
         )}
       </div>
-      <div className="hero__bottom">
-        <p className="hero__text">
-          Pottery crafted to be cherished,
-          just as nature intended.
-        </p>
-        <img src={shape} alt="Shape" className="hero__shape" />
-      </div>
     </div>
   );
 }
