@@ -10,7 +10,6 @@ import ReviewCard from "../ReviewCard/ReviewCard";
 import AddReview from "../AddReview/AddReview";
 
 function SingleProductCard({ product, reviews, setReviews }) {
-
   const [count, setCount] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -18,31 +17,33 @@ function SingleProductCard({ product, reviews, setReviews }) {
     if (count > 0) {
       setCount(count - 1);
     }
-  }
+  };
 
   const handleIncrease = () => {
     if (count < product.stock) {
-      setCount(count+1)
+      setCount(count + 1);
     }
-  }
+  };
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
-  }
+  };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
-  }
+  };
 
   const handleAddReview = (newReview) => {
     setReviews([...reviews, newReview]);
     handleCloseModal();
-  }
+  };
 
   return (
     <section className="details">
-      <h1 className="details__title">{product?.name}</h1>
-
+      <div className="details__top">
+        <h1 className="details__title">{product?.name}</h1>
+        <p className="details__price">{product?.price}.00</p>
+      </div>
       <article className="details__wrapper">
         <div className="details__image-wrapper">
           <img
@@ -50,30 +51,39 @@ function SingleProductCard({ product, reviews, setReviews }) {
             alt={product?.name}
             className="details__image"
           />
-          <p className="details__price">{product?.price}</p>
-        </div>
-        <div className="details__buttons">
-          <div className="counter">
-            <img src={lessIcon} alt="Minus one item" className="counter__less" onClick={handleDecrease} /> 
-            <p className="counter__number-items"> {count} </p>
-            <img src={moreIcon} alt="Plus one item" className="counter__more" onClick={handleIncrease} />
+          <div className="details__buttons">
+            <div className="counter">
+              <img
+                src={lessIcon}
+                alt="Minus one item"
+                className="counter__less"
+                onClick={handleDecrease}
+              />
+              <p className="counter__number-items"> {count} </p>
+              <img
+                src={moreIcon}
+                alt="Plus one item"
+                className="counter__more"
+                onClick={handleIncrease}
+              />
+            </div>
+            <button className="add-to-cart">Add to Cart</button>
           </div>
-          <button className="add-to-cart">Add to Cart</button>
-        </div>
-        <div className="description">
-          <p className="description__text">{product?.fulldescription}</p>
-          <div className="description-care">
-            <h3 className="description__care-title">Care Tips:</h3>
-            <ul className="description__care-list">
-              {product?.caretips?.map((tip, index) => (
-                <li key={index} className="description__care-item">
-                  {tip}
-                </li>
-              ))}
-            </ul>
+          <div className="description">
+            <p className="description__text">{product?.fulldescription}</p>
+            <div className="description-care">
+              <h3 className="description__care-title">Care Tips:</h3>
+              <ul className="description__care-list">
+                {product?.caretips?.map((tip, index) => (
+                  <li key={index} className="description__care-item">
+                    {tip}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
-        
+
         <div>
           <h2 className="reviews__title">Reviews</h2>
           <ul className="reviews-list">
@@ -85,7 +95,11 @@ function SingleProductCard({ product, reviews, setReviews }) {
         <button className="reviews__button" onClick={handleOpenModal}>
           {reviews.length > 0 ? "Leave a Review" : "Leave the First Review"}
         </button>
-        <ReactModal isOpen={isModalOpen} onRequestClose={handleCloseModal} className="modal">
+        <ReactModal
+          isOpen={isModalOpen}
+          onRequestClose={handleCloseModal}
+          className="modal"
+        >
           <AddReview onSubmit={handleAddReview} onClose={handleCloseModal} />
         </ReactModal>
       </article>

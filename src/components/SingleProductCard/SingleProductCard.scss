@@ -5,12 +5,24 @@
 .details {
   padding: 2rem 1rem;
 
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end
+  }
+
+  &__price {
+    @include body-typo;
+    font-size: 1.5rem;
+    padding-right: 1rem;
+  }
+
   &__wrapper {
     display: flex;
     flex-direction: column;
     margin-top: 2rem;
     border: 5px solid $pot-pourri;
-    border-radius: 20px;
+    border-radius: 10px;
   }
 
   &__image-wrapper {
@@ -19,24 +31,13 @@
     position: relative;
   }
 
-  &__price {
-    position: absolute;
-    bottom: 2rem;
-    right: 2rem;
-  }
-
   &__image {
     width: 100%;
     background-color: $pot-pourri;
     animation: backgroundAnimation 20s infinite alternate ease-in-out;
     background-size: 200% 200%;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-  }
-
-  &__price {
-    @include body-typo;
-    font-size: 1.5rem;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
   }
 
   &__buttons {
