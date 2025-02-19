@@ -6,7 +6,7 @@ import axios from "axios";
 import starFilled from "../../assets/images/star-filled_24.svg";
 import starEmpty from "../../assets/images/star_24.svg";
 
-function AddReview({ onSubmit, onClose, baseURL, product, getReviews }) {
+function AddReview({ onClose, baseURL, product, getReviews }) {
   const [name, setName] = useState("");
   const [city, setCity] = useState("");
   const [province, setProvince] = useState("");

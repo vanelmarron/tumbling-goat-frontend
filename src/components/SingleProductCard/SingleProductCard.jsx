@@ -33,7 +33,7 @@ function SingleProductCard() {
     } catch (error) {
       console.log("Error fetching product reviews", error);
     }
-  }
+  };
 
   useEffect(() => {
     const getProductDetails = async () => {
@@ -49,7 +49,6 @@ function SingleProductCard() {
       getReviews();
     }
   }, [itemId]);
-
 
   const handleDecrease = () => {
     if (count > 0) {
@@ -97,37 +96,37 @@ function SingleProductCard() {
             className="details__image"
           />
           <div className="details__content-wrapper">
-          <div className="details__buttons">
-            <div className="counter">
-              <img
-                src={lessIcon}
-                alt="Minus one item"
-                className="counter__less"
-                onClick={handleDecrease}
-              />
-              <p className="counter__number-items"> {count} </p>
-              <img
-                src={moreIcon}
-                alt="Plus one item"
-                className="counter__more"
-                onClick={handleIncrease}
-              />
+            <div className="details__buttons">
+              <div className="counter">
+                <img
+                  src={lessIcon}
+                  alt="Minus one item"
+                  className="counter__less"
+                  onClick={handleDecrease}
+                />
+                <p className="counter__number-items"> {count} </p>
+                <img
+                  src={moreIcon}
+                  alt="Plus one item"
+                  className="counter__more"
+                  onClick={handleIncrease}
+                />
+              </div>
+              <button className="add-to-cart">Add to Cart</button>
             </div>
-            <button className="add-to-cart">Add to Cart</button>
-          </div>
-          <div className="description">
-            <p className="description__text">{product?.fulldescription}</p>
-            <div className="description-care">
-              <h3 className="description__care-title">Care Tips:</h3>
-              <ul className="description__care-list">
-                {product?.caretips?.map((tip, index) => (
-                  <li key={index} className="description__care-item">
-                    {tip}
-                  </li>
-                ))}
-              </ul>
+            <div className="description">
+              <p className="description__text">{product?.fulldescription}</p>
+              <div className="description-care">
+                <h3 className="description__care-title">Care Tips:</h3>
+                <ul className="description__care-list">
+                  {product?.caretips?.map((tip, index) => (
+                    <li key={index} className="description__care-item">
+                      {tip}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </div>
           </div>
         </div>
 
@@ -135,7 +134,13 @@ function SingleProductCard() {
           <h2 className="reviews__title">Reviews</h2>
           <ul className="reviews-list">
             {reviews?.map((review) => (
-              <ReviewCard key={review.userId} review={review} />
+              <ReviewCard
+                key={review.userId}
+                review={review}
+                baseURL={baseURL}
+                product={product}
+                getReviews={getReviews}
+              />
             ))}
           </ul>
         </div>
@@ -143,18 +148,27 @@ function SingleProductCard() {
           {reviews.length > 0 ? "Leave a Review" : "Leave the First Review"}
         </button>
         <ReactModal
-        isOpen={isStockModalOpen}
-        onRequestClose={handleCloseStockModal}
-        className="modal"
-      >
-      <StockModal product={product} handleCloseStockModal={handleCloseStockModal} />
-      </ReactModal>
+          isOpen={isStockModalOpen}
+          onRequestClose={handleCloseStockModal}
+          className="modal"
+        >
+          <StockModal
+            product={product}
+            handleCloseStockModal={handleCloseStockModal}
+          />
+        </ReactModal>
         <ReactModal
           isOpen={isModalOpen}
           onRequestClose={handleCloseModal}
           className="modal"
         >
-          <AddReview onSubmit={handleAddReview} onClose={handleCloseModal} baseURL={baseURL} product={product} getReviews={getReviews}/>
+          <AddReview
+            onSubmit={handleAddReview}
+            onClose={handleCloseModal}
+            baseURL={baseURL}
+            product={product}
+            getReviews={getReviews}
+          />
         </ReactModal>
       </article>
     </section>
