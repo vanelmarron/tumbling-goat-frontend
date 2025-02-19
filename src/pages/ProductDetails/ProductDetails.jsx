@@ -4,10 +4,10 @@ import SingleProductCard from "../../components/SingleProductCard/SingleProductC
 function ProductDetails() {
 
   return (
-    <div>
+    <main>
       <SingleProductCard
       />
-    </div>
+    </main>
   );
 }
 
