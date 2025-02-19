@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./SingleProductCard.scss";
 import ReactModal from "react-modal";
 ReactModal.setAppElement("#root");
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
 import lessIcon from "../../assets/images/remove_24.svg";
 import moreIcon from "../../assets/images/add_24.svg";
@@ -10,10 +12,44 @@ import ReviewCard from "../ReviewCard/ReviewCard";
 import AddReview from "../AddReview/AddReview";
 import StockModal from "../StockModal/StockModal";
 
-function SingleProductCard({ product, reviews, setReviews }) {
+function SingleProductCard() {
+  const baseURL = import.meta.env.VITE_API_URL;
+  const { id: itemId } = useParams();
+  const [product, setProduct] = useState(null);
+  const [reviews, setReviews] = useState([]);
+
   const [count, setCount] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isStockModalOpen, setIsStockModalOpen] = useState(false);
+
+  const getReviews = async () => {
+    try {
+      const response = await axios.get(
+        `${baseURL}/api/products/${itemId}/reviews`
+      );
+      if (response.data) {
+        setReviews(response.data.reverse());
+      }
+    } catch (error) {
+      console.log("Error fetching product reviews", error);
+    }
+  }
+
+  useEffect(() => {
+    const getProductDetails = async () => {
+      try {
+        const response = await axios.get(`${baseURL}/api/products/${itemId}`);
+        setProduct(response.data);
+      } catch (error) {
+        console.log("Error fetching the products details: ", error);
+      }
+    };
+    if (itemId) {
+      getProductDetails();
+      getReviews();
+    }
+  }, [itemId]);
+
 
   const handleDecrease = () => {
     if (count > 0) {
@@ -118,7 +154,7 @@ function SingleProductCard({ product, reviews, setReviews }) {
           onRequestClose={handleCloseModal}
           className="modal"
         >
-          <AddReview onSubmit={handleAddReview} onClose={handleCloseModal} />
+          <AddReview onSubmit={handleAddReview} onClose={handleCloseModal} baseURL={baseURL} product={product} getReviews={getReviews}/>
         </ReactModal>
       </article>
     </section>

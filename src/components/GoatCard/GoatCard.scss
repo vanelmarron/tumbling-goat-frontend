@@ -13,6 +13,7 @@
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   padding: 1rem;
+  background-color: $jaffa;
 
   @include tablet {
     margin: 2rem auto;
@@ -53,9 +54,6 @@
     align-items: center;
     gap: 2rem;
     width: 100%;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    background-color: $jaffa;
-    border-radius: 10px;
     padding: 1rem;
   }
 
@@ -63,13 +61,14 @@
     font-size: 1.2rem;
     color: $white-linen;
     height: 17rem;
+    width: 100%;
     display: flex;
+    text-align: center;
     justify-content: center;
     align-items: center;
     padding: 1rem;
 
     @include tablet {
-
       height: 10rem;
     }
   }
@@ -81,6 +80,11 @@
 
   &__pagination {
     @include title-typo;
+    color: $black;
+  }
+
+  &__read {
+    color: $white-linen;
   }
 
   &__actions {

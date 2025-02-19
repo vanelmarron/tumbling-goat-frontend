@@ -7,6 +7,7 @@ import forwardArrow from "../../assets/images/arrow_forward_24.svg";
 
 function GoatCard() {
   const paragraphs = [
+    "Discover the Story behind 'Tumbling Goat'",
     "It all started with an epic hunting trip in the mountains near Revelstoke. Marie-Ève’s friend, Emile, was out solo when he spotted something wild, a mountain goat. His dream finally coming true. Deep breath. Steady aim. He took the shot. But that was just the beginning. Getting to the goat was no joke.",
     "The climb was steep, the terrain brutal, but he pushed through. When he finally reached it, he thought the hard part was over. Nope. As he went to move the animal, he slid with it. He had to let his prize go to save himself from a deadly fall from a 30-foot cliff. The goat tumbled. And tumbled. And kept tumbling, kicking off an avalanche. Within seconds, it was completely buried at the bottom of the cliff. Gone.",
     "He searched desperately, but it was no use. Defeated, he headed home, haunted by the thought of a life taken but left behind. That wasn’t how this story was supposed to end. So, the next day, he rallied his crew. Armed with probes and sheer determination, they hiked back up, thinking that they would have to search for hours. Thankfully, after a few minutes of teamwork, someone hit something solid. They had found it!",
@@ -36,7 +37,6 @@ function GoatCard() {
             className="goat-card__photo-goat"
           />
           <h2>The Goat</h2>
-          <h3>The story behind "Tumbling Goat"</h3>
         </div>
         <div className="goat-card__bottom">
           <p className="goat-card__text">{paragraphs[currentIndex]}</p>
@@ -54,7 +54,7 @@ function GoatCard() {
           className={`goat-card__back ${currentIndex === 0 ? "goat-card__back--disabled" : ""}`}
           onClick={currentIndex > 0 ? handlePrev : undefined}
         />
-        <h3>Read the story</h3>
+        <h3 className="goat-card__read">Read the story</h3>
         <img
           src={forwardArrow}
           alt="Forward Arrow"
