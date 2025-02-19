@@ -4,15 +4,25 @@
 
 .details {
   padding: 2rem 1rem;
+  max-width: 1216px;
+
+  @include tablet {
+    padding: 2rem;
+  }
+
+  @include desktop {
+    margin: 2rem auto;
+  }
 
   &__top {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: flex-end
+    gap: 1rem;
   }
 
   &__price {
-    @include body-typo;
+    @include title-typo;
     font-size: 1.5rem;
     padding-right: 1rem;
   }
@@ -29,6 +39,11 @@
     display: flex;
     flex-direction: column;
     position: relative;
+
+    @include desktop {
+      flex-direction: row;
+      height: 100%;
+    }
   }
 
   &__image {
@@ -38,6 +53,16 @@
     background-size: 200% 200%;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+
+    @include desktop {
+      height: 27rem;
+      border-top-right-radius: 0;
+    }
+  }
+
+  &__content-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
   }
 
   &__buttons {
@@ -57,7 +82,7 @@
   width: 10rem;
   padding: 0 2rem;
   border: 2px solid $jaffa;
-  border-radius: 20px;
+  border-radius: 10px;
 
 &__less {
   background: none;
@@ -86,7 +111,7 @@ align-items: center;
 width: 10rem;
 padding: 0.25rem 1rem;
 border: 2px solid $jaffa;
-border-radius: 20px;
+border-radius: 10px;
 @include button;
 color: $white-linen;
 background-color: $jaffa;
@@ -126,7 +151,7 @@ background-color: $jaffa;
     @include button;
     background-color: $jaffa;
     border: 2px solid $jaffa;
-    border-radius: 20px;
+    border-radius: 10px;
     color: $white-linen;
     width: 10rem;
     margin: 1rem;

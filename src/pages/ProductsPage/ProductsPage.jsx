@@ -9,11 +9,9 @@ import axios from "axios";
 
 const baseURL= import.meta.env.VITE_API_URL;
 
-function ProductsPage() {
+function ProductsPage({ searchItem, setSearchItem, selectedFilter, setSelectedFilter }) {
 
   const [products, setProducts] = useState([]);
-  const [searchItem, setSearchItem] = useState("");
-  const [selectedFilter, setSelectedFilter] = useState(null);
 
   const filteredProducts = products.filter((product) => {
     if (searchItem) {
@@ -44,7 +42,6 @@ function ProductsPage() {
 
   return (
     <main className="main">
-      <Header setSearchItem={setSearchItem} setSelectedFilter={setSelectedFilter} products={products} baseURL={baseURL} />
       <Hero />
       <ProductList products={filteredProducts} baseURL={baseURL}/>
     </main>

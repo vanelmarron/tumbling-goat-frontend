@@ -37,6 +37,15 @@ h2 {
   @include subheader-typo;
 }
 
+h3 {
+  font-family: "Fontin";
+  font-size: 1rem;
+
+  @include tablet {
+    font-size: 1.25rem;
+  }
+}
+
 input,
 textarea {
   font-family: "Oliver";

@@ -8,10 +8,12 @@ import moreIcon from "../../assets/images/add_24.svg";
 
 import ReviewCard from "../ReviewCard/ReviewCard";
 import AddReview from "../AddReview/AddReview";
+import StockModal from "../StockModal/StockModal";
 
 function SingleProductCard({ product, reviews, setReviews }) {
   const [count, setCount] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isStockModalOpen, setIsStockModalOpen] = useState(false);
 
   const handleDecrease = () => {
     if (count > 0) {
@@ -22,7 +24,14 @@ function SingleProductCard({ product, reviews, setReviews }) {
   const handleIncrease = () => {
     if (count < product.stock) {
       setCount(count + 1);
+      if (count + 1 === product.stock) {
+        setIsStockModalOpen(true);
+      }
     }
+  };
+
+  const handleCloseStockModal = () => {
+    setIsStockModalOpen(false);
   };
 
   const handleOpenModal = () => {
@@ -51,6 +60,7 @@ function SingleProductCard({ product, reviews, setReviews }) {
             alt={product?.name}
             className="details__image"
           />
+          <div className="details__content-wrapper">
           <div className="details__buttons">
             <div className="counter">
               <img
@@ -82,6 +92,7 @@ function SingleProductCard({ product, reviews, setReviews }) {
               </ul>
             </div>
           </div>
+          </div>
         </div>
 
         <div>
@@ -95,6 +106,13 @@ function SingleProductCard({ product, reviews, setReviews }) {
         <button className="reviews__button" onClick={handleOpenModal}>
           {reviews.length > 0 ? "Leave a Review" : "Leave the First Review"}
         </button>
+        <ReactModal
+        isOpen={isStockModalOpen}
+        onRequestClose={handleCloseStockModal}
+        className="modal"
+      >
+      <StockModal product={product} handleCloseStockModal={handleCloseStockModal} />
+      </ReactModal>
         <ReactModal
           isOpen={isModalOpen}
           onRequestClose={handleCloseModal}

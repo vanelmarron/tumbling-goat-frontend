@@ -1,23 +1,32 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./HeaderMenu.scss";
 
 function HeaderMenu( {setSearchItem, setSelectedFilter}) {
   const [activeMenu, setActiveMenu] = useState(null);
   const [activeSubMenu, setActiveSubMenu] = useState(null);
 
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleShopClick = () => {
+    if (location.pathname !== "/products") {
+      navigate("/products");
+    }
+  };
+
   return (
     <div className="header-menu">
       <ul className="header-menu__list">
-        {/* Main Menu Item */}
         <li
           className="header-menu__item"
+          onClick={handleShopClick}
           onMouseEnter={() => setActiveMenu("shop")}
           onMouseLeave={() => setActiveMenu(null)}
         >
           SHOP
-          {activeMenu === "shop" && (
+          {location.pathname === "/products" && activeMenu === "shop" && (
             <ul className="sub-menu">
-              {/* Sub-Menu Item */}
               <li
                 className="sub-menu__item"
                 onMouseEnter={() => setActiveSubMenu("category")}
@@ -55,12 +64,17 @@ function HeaderMenu( {setSearchItem, setSelectedFilter}) {
             </ul>
           )}
         </li>
-
-        <li className="header-menu__item">OUR STORY</li>
         <li className="header-menu__item">FIND US</li>
       </ul>
 
-      <input type="text" placeholder="Search..." className="header-menu__search" onChange={(event) => setSearchItem(event.target.value)}/>
+      {location.pathname === "/products" && (
+        <input
+          type="text"
+          placeholder="Search..."
+          className="header-menu__search"
+          onChange={(event) => setSearchItem(event.target.value)}
+        />
+      )}
     </div>
   );
 }
