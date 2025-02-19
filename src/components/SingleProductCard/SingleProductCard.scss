@@ -89,13 +89,24 @@
   cursor: pointer;
   border: none;
   color: $jaffa;
-}
+
+  &--disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
+
 
 &__more {
   background: none;
   cursor: pointer;
   border: none;
   color: $jaffa;
+
+  &--disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
 }
 
 &__number-items {
@@ -115,6 +126,18 @@ border-radius: 10px;
 @include button;
 color: $white-linen;
 background-color: $jaffa;
+cursor: pointer;
+
+&:hover {
+  background-color: darken(#dc8150, 10%);
+  border: 2px solid darken(#dc8150, 10%);
+}
+
+&--disable {
+  background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
 }
 
 .description {
@@ -153,9 +176,15 @@ background-color: $jaffa;
     border: 2px solid $jaffa;
     border-radius: 10px;
     color: $white-linen;
-    width: 10rem;
+    width: fit-content;
     margin: 1rem;
     padding: 0.5rem 1rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: darken(#dc8150, 10%);
+      border: 2px solid darken(#dc8150, 10%);
+    }
   }
 }
 
