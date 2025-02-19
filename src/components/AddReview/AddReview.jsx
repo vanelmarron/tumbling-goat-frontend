@@ -1,30 +1,45 @@
 import "./AddReview.scss";
-import ReactModal from "react-modal";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import axios from "axios";
 
 import starFilled from "../../assets/images/star-filled_24.svg";
 import starEmpty from "../../assets/images/star_24.svg";
 
-function AddReview({ onSubmit, onClose }) {
+function AddReview({ onSubmit, onClose, baseURL, product, getReviews }) {
   const [name, setName] = useState("");
   const [city, setCity] = useState("");
   const [province, setProvince] = useState("");
   const [reviewText, setReviewText] = useState("");
   const [rating, setRating] = useState(0);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (!baseURL || !product?.id) {
+      console.error("Base URL or Product ID is missing.");
+      alert("Error: No product selected for review.");
+      return;
+    }
+
     const newReview = {
-      userId: uuidv4(),
-      name,
-      city,
-      province,
+      reviewId: uuidv4(), 
+      name: name,
+      city: city,
+      province: province,
       review: reviewText,
       rate: rating,
+      timestamp: Date.now(),
     };
-    onSubmit(newReview);
-    onClose();
+    try {
+      const response = await axios.post(`${baseURL}/api/products/${product.id}/reviews`, newReview, { headers: { "Content-Type": "application/json" } });
+      console.log("Review posted successfully:", response.data);
+
+      getReviews();
+      onClose();
+    } catch(error) {
+      console.error("Error posting review:", error);
+    }
   };
 
   return (
@@ -60,7 +75,7 @@ function AddReview({ onSubmit, onClose }) {
               required
             />
             <label htmlFor="province" className="add-review__label">
-              Province:{" "}
+              Province:
             </label>
             <input
               type="text"
@@ -75,7 +90,7 @@ function AddReview({ onSubmit, onClose }) {
           </div>
           <div className="add-review__bottom">
             <label htmlFor="review" className="add-review__label">
-              Review:{" "}
+              Review:
             </label>
             <textarea
               className="add-review__textarea"

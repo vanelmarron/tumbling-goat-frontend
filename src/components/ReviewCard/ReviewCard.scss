@@ -12,14 +12,24 @@
 
   &__wrapper {
     display: flex;
+    flex-direction: column;
     padding: 1rem;
     width: 100%;
+    gap: 1rem;
+
+    @include tablet {
+      flex-direction: row;
+    }
   }
 
   &__user {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 100%;
+
+    @include tablet {
+      width: 50%;
+    }
   }
 
   &__actions {
@@ -42,6 +52,10 @@
     display: flex;
     gap: 0.5rem;
     height: 24px;
+  }
+
+  &__content {
+    display: flex;
   }
 
   &__text {

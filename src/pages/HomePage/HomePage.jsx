@@ -8,12 +8,12 @@ import ShopCard from "../../components/ShopCard/ShopCard"
 
 function HomePage() {
   return (
-    <div>
+    <main>
       <Hero />
       <ArtistCard />
       <ShopCard />
       <GoatCard />
-    </div>
+    </main>
   )
 }
 

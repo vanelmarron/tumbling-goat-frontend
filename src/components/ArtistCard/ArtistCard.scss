@@ -3,13 +3,12 @@
 @use "../../styles/partials/variables" as *;
 
 .artist-card {
-  padding: 1rem;
   height: 30rem;
   width: 100%;
   perspective: 1000px;
   cursor: pointer;
   max-width: 1216px;
-  margin: 0 auto;
+  margin: 1rem auto;
 
   &__inner {
     width: 100%;
@@ -29,7 +28,7 @@
     height: 100%;
     position: absolute;
     backface-visibility: hidden;
-    border-radius: 12px;
+    border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
@@ -95,12 +94,30 @@
     animation: spinCounterClockwise 12s linear infinite;
   }
 
+  &__front-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__intro {
+    font-size: 1rem;
+
+    @include tablet {
+      font-size: 1.25rem;
+    }
+  }
+
   &__learn-more {
     margin: 1rem auto;
     width: 8rem;
     border: 2px solid $gold;
     border-radius: 10px;
     padding: 0.5rem 1rem;
+
+    &:hover {
+      background-color: $gold;
+    }
   }
 
   &__back {
