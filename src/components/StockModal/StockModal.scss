@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   margin: auto;
-  margin-top: 55%;
+  margin-top: 25%;
   background-color: $white-linen;
   border: 2px solid $jaffa;
   border-radius: 20px;
@@ -42,6 +42,11 @@
     color: $white-linen;
     background-color: $jaffa;
 
+    &:hover {
+      background-color: darken(#dc8150, 10%);
+      border: 2px solid darken(#dc8150, 10%)
+    }
+
     @include tablet {
         width: 10rem;
     }
@@ -59,5 +64,10 @@
     border-radius: 10px;
     color: $jaffa;
     background-color: $white-linen;
+
+    &:hover {
+      background-color: darken($white-linen, 10%);
+      border: 2px solid darken($white-linen, 10%);
+    }
   }
 }

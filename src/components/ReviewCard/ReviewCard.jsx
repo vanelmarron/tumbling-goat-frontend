@@ -11,13 +11,17 @@ import starEmpty from "../../assets/images/star_24.svg";
 import starFilled from "../../assets/images/star-filled_24.svg";
 
 import EditReview from "../EditReview/EditReview";
+import DeleteReview from "../DeleteReview/DeleteReview";
 
 function ReviewCard({ review, baseURL, product, getReviews }) {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-  // const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
   const handleOpenEditModal = () => setIsEditModalOpen(true);
   const handleCloseEditModal = () => setIsEditModalOpen(false);
+
+  const handleOpenDeleteModal = () => setIsDeleteModalOpen(true);
+  const handleCloseDeleteModal = () => setIsDeleteModalOpen(false);
 
   const handleEditReview = async (updatedReview) => {
     try {
@@ -41,8 +45,19 @@ function ReviewCard({ review, baseURL, product, getReviews }) {
     }
   };
 
-  // const handleOpenDeleteModal = () => setIsDeleteReviewModalOpen(true);
-  // const handleCloseDeleteModal = () => setIsDeleteReviewModalOpen(false);
+  const handleDeleteReview = async () => {
+    try {
+      const response = await axios.delete(`${baseURL}/api/products/${product.id}/reviews/${review.reviewId}`)
+
+      if(response.status === 200) {
+        console.log("Review delete successfully");
+        getReviews();
+        setIsDeleteModalOpen(false);
+      }
+    } catch(error) {
+      console.error("Error deleting review", error)
+    }
+  }
 
   return (
     <>
@@ -79,6 +94,7 @@ function ReviewCard({ review, baseURL, product, getReviews }) {
                 src={deleteIcon}
                 alt="Delete Review"
                 className="reviews__delete"
+                onClick={handleOpenDeleteModal}
               />
             </div>
           </div>
@@ -93,6 +109,13 @@ function ReviewCard({ review, baseURL, product, getReviews }) {
                 className="modal"
               >
         <EditReview review={review} onClose={handleCloseEditModal} handleEditReview={handleEditReview} />
+      </ReactModal>
+      <ReactModal
+                isOpen={isDeleteModalOpen}
+                onRequestClose={handleCloseDeleteModal}
+                className="modal"
+              >
+        <DeleteReview onClose={handleCloseDeleteModal} handleDeleteReview={handleDeleteReview} />
       </ReactModal>
     </>
   );

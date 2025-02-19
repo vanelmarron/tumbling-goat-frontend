@@ -101,18 +101,18 @@ function SingleProductCard() {
                 <img
                   src={lessIcon}
                   alt="Minus one item"
-                  className="counter__less"
-                  onClick={handleDecrease}
+                  className={`counter__less ${count === 0 ? "counter__less--disabled": ""}`}
+                  onClick={count > 0 ? handleDecrease : undefined}
                 />
                 <p className="counter__number-items"> {count} </p>
                 <img
                   src={moreIcon}
                   alt="Plus one item"
-                  className="counter__more"
-                  onClick={handleIncrease}
+                  className={`counter__more ${product && count >= product.stock ? "counter__more--disabled" : ""}`}
+                  onClick={product && count < product.stock ? handleIncrease : undefined}
                 />
               </div>
-              <button className="add-to-cart">Add to Cart</button>
+              <button className={`add-to-cart ${product?.stock === 0 ? "add-to-cart--disabled" : ""}`} disabled={product?.stock===0}>Add to Cart</button>
             </div>
             <div className="description">
               <p className="description__text">{product?.fulldescription}</p>

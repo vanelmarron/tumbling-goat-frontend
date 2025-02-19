@@ -1,0 +1,71 @@
+@use "../../styles/partials/global";
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.delete-review {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 25%;
+    background-color: $white-linen;
+    border: 2px solid $jaffa;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  
+    &__title {
+      padding-bottom: 2rem;
+    }
+
+    &__buttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 1rem;
+        gap: 1rem;
+    
+        @include tablet {
+            flex-direction: row;
+            justify-content: flex-end;
+        }
+      }
+    
+      &__submit {
+        @include button;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 5.563rem;
+        padding: 0.25rem 1rem;
+        border: 2px solid #c14438;
+        border-radius: 10px;
+        color: $white-linen;
+        background-color: #c14438;
+
+        &:hover {
+          background-color: darken(#c14438, 10%);
+          border: 2px solid darken(#c14438, 10%)
+        }
+      }
+    
+      &__cancel {
+        @include button;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.25rem 1rem;
+        min-width: 2.625rem;
+        border: 2px solid $jaffa;
+        border-radius: 10px;
+        color: $jaffa;
+        background-color: $white-linen;
+
+        &:hover {
+          background-color: darken($white-linen, 10%);
+          border: 2px solid darken($white-linen, 10%);
+        }
+      }
+}  
