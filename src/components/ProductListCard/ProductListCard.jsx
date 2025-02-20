@@ -1,8 +1,19 @@
-import {Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./ProductListCard.scss";
+import { useContext } from "react";
 
+import { ShopContext } from "../../context/shop-context";
 
-function ProductListCard({ product }) {
+function ProductListCard({ product, onAddToCart  }) {
+
+  const {addToCart} = useContext(ShopContext);
+
+  const handleAddToCartClick = () => {
+    addToCart(product);
+    onAddToCart(product);
+  }
+  
+
   return (
     <li className="product-card">
       <div className="product-card__flip-container">
@@ -15,22 +26,28 @@ function ProductListCard({ product }) {
             />
           </div>
           <div className="product-card__back">
-          <img
+            <img
               src={product.photo}
               alt={product.name}
               className="product-card__back-image"
             />
-             <div className="product-card__overlay"></div>
-          <Link to={`/products/${product.id}`} className="product-card__button">
-            <p className="product-card__back-text">Quick View</p>
-            </Link>
+            <div className="product-card__overlay"></div>
+            <div className="product-card__button-wrapper">
+              <Link
+                to={`/products/${product.id}`}
+                className="product-card__button"
+              >
+                <p className="product-card__back-text">Quick View</p>
+              </Link>
+                <button className="product-card__add-to-cart" onClick={handleAddToCartClick}>Add To Cart</button>
+            </div>
           </div>
         </div>
       </div>
       <div className="product-card__description-wrapper">
         <h3 className="product-card__name">{product.name}</h3>
         <p className="product-card__description">{product.briefdescription}</p>
-        <p className="product-card__price">CA{product.price}.00</p>
+        <p className="product-card__price">CA${product.price}.00</p>
       </div>
     </li>
   );

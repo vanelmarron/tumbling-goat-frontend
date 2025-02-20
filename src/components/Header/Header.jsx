@@ -46,7 +46,9 @@ function Header({ setSearchItem, setSelectedFilter }) {
             className="header__logo"
           />
         </Link>
+        <Link to="/cart">
         <img src={shoppingCart} alt="Cart" className="header__cart--mobile" />
+        </Link>
 
         <div className="header__left">
           <Link to="/">
@@ -123,6 +125,7 @@ function Header({ setSearchItem, setSelectedFilter }) {
             onChange={(event) => setSearchItem(event.target.value)}
           />
           )}
+          <Link to="/cart">
           <div className="header__cart-wrapper">
             <p className="header__cart-text">Cart</p>
             <img
@@ -131,6 +134,7 @@ function Header({ setSearchItem, setSelectedFilter }) {
               className="header__cart--tablet"
             />
           </div>
+          </Link>
         </div>
       </div>
       {menuIsOpen && <HeaderMenu setSearchItem={setSearchItem} setSelectedFilter={setSelectedFilter}/>}

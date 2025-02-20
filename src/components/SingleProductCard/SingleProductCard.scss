@@ -133,7 +133,7 @@ cursor: pointer;
   border: 2px solid darken(#dc8150, 10%);
 }
 
-&--disable {
+&--disabled {
   background-color: #ccc;
     cursor: not-allowed;
     opacity: 0.5;
