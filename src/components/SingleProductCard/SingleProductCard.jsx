@@ -86,7 +86,7 @@ function SingleProductCard() {
     <section className="details">
       <div className="details__top">
         <h1 className="details__title">{product?.name}</h1>
-        <p className="details__price">{product?.price}.00</p>
+        <p className="details__price">${product?.price}.00</p>
       </div>
       <article className="details__wrapper">
         <div className="details__image-wrapper">

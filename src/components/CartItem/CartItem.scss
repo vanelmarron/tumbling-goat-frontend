@@ -1,0 +1,72 @@
+@use "../../styles/partials/global";
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.shop-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid $jaffa;
+
+  &__image-wrapper {
+    height: 20rem;
+    width: 20rem;
+    margin: auto;
+  }
+
+  &__details {
+    width: 20rem;
+    margin: 1rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__image {
+    height: 100%;
+  }
+
+  &__label {
+    font-size: 0.813rem;
+    color: $jaffa;
+  }
+
+  &__counter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 10rem;
+    padding: 0 2rem;
+    border: 2px solid $jaffa;
+    border-radius: 10px;
+  }
+  &__less {
+    background: none;
+    cursor: pointer;
+    border: none;
+    color: $jaffa;
+  
+    &--disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+      }
+    }
+
+    &__more {
+        background: none;
+        cursor: pointer;
+        border: none;
+        color: $jaffa;
+      
+        &--disabled {
+          cursor: not-allowed;
+          opacity: 0.5;
+        }
+      }
+
+      &__delete {
+        height: 24px;
+        padding-right: 2rem;
+      }
+}
