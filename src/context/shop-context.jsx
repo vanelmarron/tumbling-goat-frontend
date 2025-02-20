@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import { createContext, useState } from "react";
 
 export const ShopContext = createContext(null);
 
@@ -6,25 +6,33 @@ const ShopContextProvider = ({ children }) => {
 
   const [cartItems, setCartItems] = useState({});
 
-  const addToCart = (product) => {
+  const addToCart = (product, quantity = 1) => {
     setCartItems((prev) => ({
         ...prev,
         [product.id]: prev[product.id]
-          ? { ...prev[product.id], quantity: prev[product.id].quantity + 1 }
-          : { ...product, quantity: 1 },
+          ? { ...prev[product.id], quantity: prev[product.id].quantity + quantity }
+          : { ...product, quantity },
       }));
   };
 
-  const removeFromCart = (itemId) => {
+  const removeFromCart = (itemId, removeAll = false) => {
     setCartItems((prev) => {
       if (!prev[itemId]) return prev;
 
-      const newQuantity = prev[itemId].quantity - 1;
-      if (newQuantity <= 0) {
-        const updatedCart = { ...prev };
-        delete updatedCart[itemId];
-        return updatedCart;
-      }
+      if (!prev[itemId]) return prev;
+
+    if (removeAll) {
+      const updatedCart = { ...prev };
+      delete updatedCart[itemId];
+      return updatedCart;
+    }
+
+    const newQuantity = prev[itemId].quantity - 1;
+    if (newQuantity <= 0) {
+      const updatedCart = { ...prev };
+      delete updatedCart[itemId];
+      return updatedCart;
+    }
 
       return {
         ...prev,

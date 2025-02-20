@@ -8,7 +8,7 @@ import moreIcon from "../../assets/images/add_24.svg";
 import { ShopContext } from "../../context/shop-context";
 
 function CartItem({ product, quantity }) {
-  const { cartItems, addToCart, removeFromCart } = useContext(ShopContext);
+  const { addToCart, removeFromCart } = useContext(ShopContext);
 
   return (
     <li className="shop-item">
@@ -58,7 +58,7 @@ function CartItem({ product, quantity }) {
           src={deleteIcon}
           alt="Remove item from cart"
           className="shop-item__delete"
-          onClick={() => removeFromCart(product.id)}
+          onClick={() => removeFromCart(product.id, true)}
         />
         </div>
       

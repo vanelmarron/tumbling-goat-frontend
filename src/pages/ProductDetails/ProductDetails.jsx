@@ -4,7 +4,7 @@ import SingleProductCard from "../../components/SingleProductCard/SingleProductC
 function ProductDetails() {
 
   return (
-    <main>
+    <main className="product-details-page">
       <SingleProductCard
       />
     </main>

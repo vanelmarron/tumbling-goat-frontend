@@ -51,6 +51,10 @@
           border: 2px solid darken($white-linen, 10%);
         }
 
+        &--empty {
+          width: 10rem;
+        }
+
         @include tablet {
             height: 2.5rem;
             width: 12rem;

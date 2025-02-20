@@ -43,7 +43,7 @@ function Cart() {
       {isCartEmpty ? (
         <div className="cart__empty">
           <p>Your cart is currently empty.</p>
-          <button className="cart__continue" onClick={() => navigate("/products")}>
+          <button className={`cart__continue cart__continue--empty`} onClick={() => navigate("/products")}>
             Continue Shopping
           </button>
         </div>

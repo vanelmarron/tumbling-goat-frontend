@@ -12,7 +12,7 @@ function StockModal({product, handleCloseStockModal}) {
         additional pieces just for you.
       </p>
       <div className="stock__buttons">
-      <Link to="mailto:marie_eve13@hotmail.com">
+      <Link to="mailto:tumblinggoatpottery@gmail.com">
       <button className="stock__contact">Contact Us</button>
       </Link>
       <button className="stock__close"

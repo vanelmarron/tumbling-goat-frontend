@@ -4,6 +4,7 @@
 
 .header {
   width: 100vw;
+  min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -56,6 +57,12 @@
     }
   }
 
+  &__right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   &__cart {
     &--mobile {
       height: 2rem;
@@ -72,6 +79,7 @@
       @include tablet {
         display: flex;
         cursor: pointer;
+        height: 2rem;
       }
     }
   }
@@ -82,13 +90,8 @@
     gap: 0.5rem;
   }
 
-  &__cart-text {
-    display: none;
-
-    @include tablet {
-      display: contents;
-      @include title-typo;
-    }
+  &__account--tablet {
+    height: 2rem;
   }
 
   &__left {
@@ -140,13 +143,13 @@
     @include tablet {
       display: flex;
       padding: 0.5rem 0.75rem;
-      border: 1.5px solid $jaffa;
+      border: 2px solid $jaffa;
       border-radius: 20px;
       background-image: url(../../assets/images/etourdi.png);
       background-repeat: no-repeat;
       background-position: calc(100% - 0.5rem) center;
       background-size: 2.5rem;
-      max-width: 10rem;
+      max-width: 12rem;
       @include body-small;
     }
 

@@ -60,11 +60,12 @@ function HeaderMenu( {setSearchItem, setSelectedFilter}) {
                 )}
               </li>
 
-              <li className="sub-menu__item" onClick={() => setSelectedFilter("")}>Shop All</li>
+              <li className="sub-menu__item" onClick={() => setSelectedFilter(null)}>Shop All</li>
             </ul>
           )}
         </li>
         <li className="header-menu__item">FIND US</li>
+        <li className="header-menu__item">MY ACCOUNT</li>
       </ul>
 
       {location.pathname === "/products" && (

@@ -1,6 +1,5 @@
 import React from 'react';
 import "./ProductsPage.scss";
-import Header from "../../components/Header/Header";
 import Hero from '../../components/Hero/Hero';
 import ProductList from "../../components/ProductList/ProductList";
 
@@ -9,7 +8,7 @@ import axios from "axios";
 
 const baseURL= import.meta.env.VITE_API_URL;
 
-function ProductsPage({ searchItem, setSearchItem, selectedFilter, setSelectedFilter }) {
+function ProductsPage({ searchItem, selectedFilter }) {
 
   const [products, setProducts] = useState([]);
 
@@ -41,7 +40,7 @@ function ProductsPage({ searchItem, setSearchItem, selectedFilter, setSelectedFi
   }, [])
 
   return (
-    <main className="main">
+    <main className="products-page">
       <Hero />
       <ProductList products={filteredProducts} baseURL={baseURL}/>
     </main>

@@ -36,7 +36,7 @@ function ArtistCard() {
           <div className="artist-card__front-text">
           <h2 className="artist-card__learn-title">About me</h2>
           <p className="artist-card__intro">Introducing Marie-Ève</p>
-          <p className="artist-card__learn-more">Learn More</p>
+          <button className="artist-card__learn-more">Learn More</button>
           </div>
           </div>
         </div>

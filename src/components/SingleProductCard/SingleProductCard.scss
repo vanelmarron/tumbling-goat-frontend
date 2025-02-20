@@ -31,8 +31,9 @@
     display: flex;
     flex-direction: column;
     margin-top: 2rem;
-    border: 5px solid $pot-pourri;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
+    padding-bottom: 2rem;
   }
 
   &__image-wrapper {
@@ -48,16 +49,16 @@
 
   &__image {
     width: 100%;
-    background-color: $pot-pourri;
-    animation: backgroundAnimation 20s infinite alternate ease-in-out;
-    background-size: 200% 200%;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border: 10px;
+    height: 15rem;
+    width: fit-content;
+    margin: 1rem auto;
 
-    @include desktop {
+    @include tablet {
+      margin: 2rem auto;
       height: 27rem;
-      border-top-right-radius: 0;
     }
+
   }
 
   &__content-wrapper {
@@ -185,23 +186,5 @@ cursor: pointer;
       background-color: darken(#dc8150, 10%);
       border: 2px solid darken(#dc8150, 10%);
     }
-  }
-}
-
-@keyframes backgroundAnimation {
-  0% {
-    background: linear-gradient(135deg, #efdcd1, #f1eae0);
-  }
-  25% {
-    background: linear-gradient(135deg, #f1eae0, #efdcd1);
-  }
-  50% {
-    background: linear-gradient(135deg, #efdcd1, #f1eae0);
-  }
-  75% {
-    background: linear-gradient(135deg, #f1eae0, #efdcd1);
-  }
-  100% {
-    background: linear-gradient(135deg, #efdcd1, #f1eae0);
   }
 }

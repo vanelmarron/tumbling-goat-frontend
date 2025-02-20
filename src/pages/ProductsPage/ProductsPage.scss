@@ -1,0 +1,8 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/global";
+
+.products-page {
+    min-height: 60vh;
+    margin-top: 2rem;
+}

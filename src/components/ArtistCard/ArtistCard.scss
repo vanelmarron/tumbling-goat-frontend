@@ -3,12 +3,19 @@
 @use "../../styles/partials/variables" as *;
 
 .artist-card {
-  height: 30rem;
-  width: 100%;
-  perspective: 1000px;
+  height: 40rem;
   cursor: pointer;
   max-width: 1216px;
-  margin: 1rem auto;
+  margin: 1rem;
+
+  @include tablet {
+    margin: 2rem;
+    height: 30rem;
+  }
+
+  @include desktop {
+    margin: 1rem auto;
+  }
 
   &__inner {
     width: 100%;
@@ -112,8 +119,8 @@
     margin: 1rem auto;
     width: 8rem;
     border: 2px solid $gold;
-    border-radius: 10px;
-    padding: 0.5rem 1rem;
+    background-color: $jaffa;
+    color: $white-linen;
 
     &:hover {
       background-color: $gold;

@@ -12,7 +12,7 @@ function ShopCard() {
             <p className="shop-card__intro">Pottery crafted to be cherished.</p>
             <p className="shop-card__intro">Just as nature intended.</p>
             <Link to="/products">
-            <p className="shop-card__button">Shop Now</p>
+            <button className="shop-card__button">Shop Now</button>
             </Link>
             </div>
         </div>
