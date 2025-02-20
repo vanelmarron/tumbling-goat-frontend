@@ -9,8 +9,9 @@ function ProductListCard({ product, onAddToCart  }) {
   const {addToCart} = useContext(ShopContext);
 
   const handleAddToCartClick = () => {
-    addToCart(product);
-    onAddToCart(product);
+    const updatedProduct = { ...product, quantity: 1 }; 
+  addToCart(updatedProduct);
+  onAddToCart(updatedProduct);
   }
   
 
@@ -37,7 +38,7 @@ function ProductListCard({ product, onAddToCart  }) {
                 to={`/products/${product.id}`}
                 className="product-card__button"
               >
-                <p className="product-card__back-text">Quick View</p>
+                <button className="product-card__quick-view">Quick View</button>
               </Link>
                 <button className="product-card__add-to-cart" onClick={handleAddToCartClick}>Add To Cart</button>
             </div>

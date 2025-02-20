@@ -3,7 +3,7 @@
 @use "../../styles/partials/variables" as *;
 
 .footer {
-  min-height: 30%;
+  min-height: 25vh;
   width: 100%;
   padding: 1rem;
   @include title-typo;
@@ -12,8 +12,9 @@
 
   @include tablet {
     flex-direction: row-reverse;
-    justify-content: space-between;
-    padding: 2rem;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 0 2rem 2rem 0;
     max-width: 1216px;
     margin: auto;
     gap: 3rem;
@@ -32,13 +33,22 @@
 
     @include tablet {
       flex-direction: row;
-      justify-content: space-evenly;
-      gap: 2rem;
+      justify-content: flex-start;
+      gap: 4rem;
       flex-grow: 1;
+    }
 
-      @include desktop {
-        padding-right: 3rem;
-      }
+    @include desktop {
+      gap: 5rem;
+    }
+  }
+}
+
+.footer-list {
+  &__item {
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
     }
   }
 }
@@ -51,9 +61,11 @@
     display: flex;
     align-items: center;
     gap: 1rem;
+    cursor: pointer;
   }
 
   &__instagram {
     height: 20px;
+    cursor: pointer;
   }
 }

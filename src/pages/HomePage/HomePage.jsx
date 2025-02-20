@@ -8,7 +8,7 @@ import ShopCard from "../../components/ShopCard/ShopCard"
 
 function HomePage() {
   return (
-    <main>
+    <main className="homepage">
       <Hero />
       <ArtistCard />
       <ShopCard />

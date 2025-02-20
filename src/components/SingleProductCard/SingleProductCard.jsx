@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import "./SingleProductCard.scss";
 import ReactModal from "react-modal";
 ReactModal.setAppElement("#root");
@@ -11,16 +11,30 @@ import moreIcon from "../../assets/images/add_24.svg";
 import ReviewCard from "../ReviewCard/ReviewCard";
 import AddReview from "../AddReview/AddReview";
 import StockModal from "../StockModal/StockModal";
+import AddedToCart from "../AddedToCart/AddedToCart"
+import { ShopContext } from "../../context/shop-context";
 
 function SingleProductCard() {
   const baseURL = import.meta.env.VITE_API_URL;
   const { id: itemId } = useParams();
   const [product, setProduct] = useState(null);
   const [reviews, setReviews] = useState([]);
-
+  const {addToCart} = useContext(ShopContext);
   const [count, setCount] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isStockModalOpen, setIsStockModalOpen] = useState(false);
+  const [modalProduct, setModalProduct] = useState(null);
+
+  const closeModal = () => {
+    setModalProduct(null);
+  };
+
+  const handleAddToCartClick = () => {
+    if (count > 0) {
+      addToCart(product, count);
+      setModalProduct({ ...product, quantity: count });
+    }
+  }
 
   const getReviews = async () => {
     try {
@@ -112,7 +126,7 @@ function SingleProductCard() {
                   onClick={product && count < product.stock ? handleIncrease : undefined}
                 />
               </div>
-              <button className={`add-to-cart ${product?.stock === 0 ? "add-to-cart--disabled" : ""}`} disabled={product?.stock===0}>Add to Cart</button>
+              <button className={`add-to-cart ${product?.stock === 0 ? "add-to-cart--disabled" : ""}`} disabled={product?.stock===0} onClick={handleAddToCartClick}>Add to Cart</button>
             </div>
             <div className="description">
               <p className="description__text">{product?.fulldescription}</p>
@@ -135,7 +149,7 @@ function SingleProductCard() {
           <ul className="reviews-list">
             {reviews?.map((review) => (
               <ReviewCard
-                key={review.userId}
+                key={review.reviewId}
                 review={review}
                 baseURL={baseURL}
                 product={product}
@@ -170,6 +184,18 @@ function SingleProductCard() {
             getReviews={getReviews}
           />
         </ReactModal>
+        <ReactModal
+        isOpen={!!modalProduct}
+        onRequestClose={closeModal}
+        className="modal"
+      >
+        {modalProduct && (
+          <AddedToCart
+            product={modalProduct}
+            onClose={closeModal}
+          />
+        )}
+      </ReactModal>
       </article>
     </section>
   );

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import checkIcon from "../../assets/images/check_24.svg";
 
-function AddedToCart({ product, isOpen, onClose}) {
+function AddedToCart({ product, onClose}) {
 
     const navigate = useNavigate();
 
@@ -17,6 +17,7 @@ function AddedToCart({ product, isOpen, onClose}) {
         <img src={product.photo} alt={product.name} className="added-to-cart__image"/>
         <p className="added-to-cart__name">{product.name}</p>
         <p className="added-to-cart__description">{product.briefdescription}</p>
+        <p className="added-to-cart__quantity">QTY: {product.quantity}</p>
       </div>
       <div className="added-to-cart__buttons">
               <button
@@ -33,7 +34,7 @@ function AddedToCart({ product, isOpen, onClose}) {
               onClose();
               navigate("/cart");
             }} >
-                  Checkout
+                  View Cart
                 </button>
               </div>
     </section>
