@@ -2,7 +2,12 @@ import "./Header.scss";
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
+import Modal from "react-modal";
+Modal.setAppElement("#root");
+
 import HeaderMenu from "../HeaderMenu/HeaderMenu";
+import Login from "../Login/Login";
+import SignUp from "../SignUp/SignUp";
 
 import menuIcon from "../../assets/images/menu_24.svg";
 import tumblingGoatLogo from "../../assets/logos/TumblingGoat_logo_orange.png";
@@ -10,9 +15,13 @@ import shoppingCart from "../../assets/images/cart_24.svg";
 import accountIcon from "../../assets/images/account_24.svg";
 
 function Header({ setSearchItem, setSelectedFilter }) {
+
   const [activeMenu, setActiveMenu] = useState(null);
   const [activeSubMenu, setActiveSubMenu] = useState(null);
   const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // To be implemented in V2
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSignUp, setIsSignUp] = useState(false);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -34,6 +43,20 @@ function Header({ setSearchItem, setSelectedFilter }) {
   const toggleSubMenu = (subMenu) => {
     setActiveSubMenu((prev) => (prev === subMenu ? null : subMenu));
   };
+
+  const handleAccountClick = () => {
+    if (isLoggedIn) {
+      navigate("/account");
+    } else {
+      setIsModalOpen(true);
+      setIsSignUp(false);
+    }
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
 
   return (
     <header className="header">
@@ -159,8 +182,9 @@ function Header({ setSearchItem, setSelectedFilter }) {
                   </ul>
                 )}
               </li>
-
+              <Link to="/find-us">
               <li className="header__item">FIND US</li>
+              </Link>
             </ul>
           </div>
         </div>
@@ -169,6 +193,8 @@ function Header({ setSearchItem, setSelectedFilter }) {
           {location.pathname === "/products" && (
             <input
               type="text"
+              id="searchBar"
+              name="searchBar"
               placeholder="Search..."
               className="header__search"
               onChange={(event) => setSearchItem(event.target.value)}
@@ -180,6 +206,8 @@ function Header({ setSearchItem, setSelectedFilter }) {
               src={accountIcon}
               alt="My Account"
               className="header__account--tablet"
+              onClick={handleAccountClick}
+              style={{ cursor: "pointer" }} 
             />
             <Link to="/cart">
               <img
@@ -195,8 +223,20 @@ function Header({ setSearchItem, setSelectedFilter }) {
         <HeaderMenu
           setSearchItem={setSearchItem}
           setSelectedFilter={setSelectedFilter}
+          handleAccountClick={handleAccountClick}
+          isModalOpen={isModalOpen}
+          closeModal={closeModal}
+          isSignUp={isSignUp}
+          setIsSignUp={setIsSignUp}
         />
       )}
+      <Modal isOpen={isModalOpen} onRequestClose={closeModal} className="modal">
+        {isSignUp ? (
+          <SignUp closeModal={closeModal} />
+        ) : (
+          <Login onSignUpClick={() => setIsSignUp(true)} closeModal={closeModal} />
+        )}
+      </Modal>
     </header>
   );
 }

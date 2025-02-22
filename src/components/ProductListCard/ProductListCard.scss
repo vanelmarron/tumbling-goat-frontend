@@ -78,6 +78,16 @@
     visibility: visible;
   }
 
+  .product-card__flip-container.flipped .product-card__back {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .product-card__flip-container.flipped .product-card__front {
+    opacity: 0;
+    visibility: hidden;
+  }
+
   &__quick-view {
     position: absolute;
     top: 8rem;
@@ -87,7 +97,7 @@
     color: $jaffa;
     border: 2px solid $white-linen;
     font-weight: bold;
-    z-index: 2;
+    // z-index: 2;
 
     &:hover {
       background-color: darken($white-linen, 10%);
@@ -104,7 +114,7 @@
     color: $white-linen;
     border: 2px solid $jaffa;
     text-decoration: none;
-    z-index: 2;
+    // z-index: 2;
 
     &:hover {
       background-color: darken(#dc8150, 10%);

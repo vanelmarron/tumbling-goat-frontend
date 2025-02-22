@@ -10,7 +10,6 @@
   width: 100%;
   gap: 0.5rem;
   padding-top: 1rem;
-  z-index: 1000;
 
   @include tablet {
     display: none;
@@ -28,6 +27,7 @@
     cursor: pointer;
     position: relative;
     padding: 0.5rem;
+    color: $black;
 
     &:hover {
       background-color: $jaffa;

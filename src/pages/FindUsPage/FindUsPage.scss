@@ -1,0 +1,7 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/global";
+
+.find-us-page {
+    min-height: 60vh;
+}

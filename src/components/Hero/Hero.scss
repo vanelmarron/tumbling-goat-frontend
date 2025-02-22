@@ -3,7 +3,7 @@
 @use "../../styles/partials/variables" as *;
 
 .hero {
-    background-image: url(../../assets/images/hero-background1.jpg);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url(../../assets/images/hero-background1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -25,14 +25,6 @@
         margin: auto;
     }
 
-    &::after {
-        content: "";
-        position: absolute;
-        inset: 0; 
-        background-color: rgba(255, 255, 255, 0.6);
-        z-index: 1; 
-    }
-
     &__content {
         display: flex;
         flex-direction: column;
@@ -51,8 +43,6 @@
         justify-content: center;
         height: 8rem;
         width: fit-content;
-        // animation: tumble 3s ease-in-out infinite;
-        z-index: 3;
 
         @include tablet {
             height: 11rem;
@@ -62,39 +52,10 @@
     &__name {
         color: $black;
         position: relative;
-        z-index: 2;
     }
 
     &__bottom {
         position: relative;
-    }
-
-    &__text {
-        display: none;
-
-        @include desktop {
-            display: flex;
-            justify-content: center;
-            @include title-typo;
-            width: 40%;
-            position: relative;
-            right: -8rem;
-            z-index: 3;
-        }
-    }
-
-    &__shape {
-        display: none;
-
-        @include desktop{
-            display: flex;
-            height: 18rem;
-            position: absolute;
-            bottom: -5rem;
-            right: 8rem;
-            z-index: 2;
-        }
-        
     }
 }
 

@@ -1,0 +1,76 @@
+@use "../../styles/partials/global";
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.sign-up {
+    width: 80%;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 25%;
+  background-color: $white-linen;
+  border: 2px solid $jaffa;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  &__title {
+    padding-bottom: 2rem;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &__input {
+    padding: 0.25rem;
+    border-radius: 5px;
+
+    &--error {
+        border: 2px solid $red-cancel;
+    }
+  }
+
+  &__submit {
+    @include button;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 5.563rem;
+    border: 2px solid $jaffa;
+    color: $white-linen;
+    background-color: $jaffa;
+
+    &:hover {
+      background-color: darken(#dc8150, 10%);
+      border: 2px solid darken(#dc8150, 10%)
+    }
+  }
+
+  &__cancel {
+    @include button;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 2.625rem;
+    border: 2px solid $jaffa;
+    color: $jaffa;
+    background-color: $white-linen;
+
+    &:hover {
+      background-color: darken($white-linen, 10%);
+      border: 2px solid darken($white-linen, 10%);
+    }
+  }
+
+  &__error {
+    color: $red-cancel;
+    font-size: 0.813rem;
+
+    @include tablet {
+        font-size: 1rem;
+    }
+  }
+}

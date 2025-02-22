@@ -7,6 +7,8 @@ import HomePage from "./pages/HomePage/HomePage";
 import ProductsPage from "./pages/ProductsPage/ProductsPage";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import CartPage from "./pages/CartPage/CartPage";
+import FindUsPage from "./pages/FindUsPage/FindUsPage";
+import AccountPage from "./pages/AccountPage/AccountPage";
 import ShopContextProvider from "./context/shop-context";
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
         />
         <Route path="/products/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<CartPage />} />
+        <Route path="/find-us" element={<FindUsPage />} />
+        <Route path="/account" element={<AccountPage />}/>
       </Routes>
       <Footer />
     </BrowserRouter>
