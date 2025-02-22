@@ -85,14 +85,11 @@
 
   &__submit {
     @include button;
-    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
     min-width: 5.563rem;
-    padding: 0.25rem 1rem;
     border: 2px solid $jaffa;
-    border-radius: 10px;
     color: $white-linen;
     background-color: $jaffa;
 
@@ -104,14 +101,11 @@
 
   &__cancel {
     @include button;
-    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0.25rem 1rem;
     min-width: 2.625rem;
     border: 2px solid $jaffa;
-    border-radius: 10px;
     color: $jaffa;
     background-color: $white-linen;
 

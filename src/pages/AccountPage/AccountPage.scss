@@ -1,0 +1,19 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/global";
+
+.account {
+    min-height: 60vh;
+    margin-top: 2rem;
+    padding: 1rem;
+
+    @include tablet {
+        padding: 2rem;
+        max-width: 1216px;
+        margin: 0 auto;
+    }
+
+    &__placeholder {
+        padding-top: 2rem;
+    }
+}

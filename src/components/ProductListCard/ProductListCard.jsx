@@ -1,23 +1,43 @@
 import { Link } from "react-router-dom";
 import "./ProductListCard.scss";
-import { useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 
 import { ShopContext } from "../../context/shop-context";
 
-function ProductListCard({ product, onAddToCart  }) {
-
-  const {addToCart} = useContext(ShopContext);
+function ProductListCard({ product, onAddToCart }) {
+  const { addToCart } = useContext(ShopContext);
+  const [isFlipped, setIsFlipped] = useState(false);
+  const [isMobile, setIsMobile] = useState(false)
 
   const handleAddToCartClick = () => {
-    const updatedProduct = { ...product, quantity: 1 }; 
-  addToCart(updatedProduct);
-  onAddToCart(updatedProduct);
-  }
-  
+    const updatedProduct = { ...product, quantity: 1 };
+    addToCart(updatedProduct);
+    onAddToCart(updatedProduct);
+  };
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth <= 767);
+    };
+
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
+
+  const handleFlip = () => {
+    if (isMobile) {
+      setIsFlipped((prev) => !prev);
+    }
+  };
 
   return (
     <li className="product-card">
-      <div className="product-card__flip-container">
+      <div
+        className={`product-card__flip-container ${isFlipped ? "flipped" : ""}`}
+        onClick={handleFlip}
+      >
         <div className="product-card__flipper">
           <div className="product-card__front">
             <img
@@ -40,7 +60,12 @@ function ProductListCard({ product, onAddToCart  }) {
               >
                 <button className="product-card__quick-view">Quick View</button>
               </Link>
-                <button className="product-card__add-to-cart" onClick={handleAddToCartClick}>Add To Cart</button>
+              <button
+                className="product-card__add-to-cart"
+                onClick={handleAddToCartClick}
+              >
+                Add To Cart
+              </button>
             </div>
           </div>
         </div>

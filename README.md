@@ -2,6 +2,13 @@
 
 Tumbling Goat
 
+## Install & Run Instructions
+
+```
+npm install
+npm run dev
+```
+
 ## Overview
 
 Tumbling Goat provides pottery artists with a digital platform to connect with customers, market their products, and share details about events and selling locations. By streamlining marketing and sales efforts, the app empowers artists to focus on their craft while reaching a broader, more engaged audience.

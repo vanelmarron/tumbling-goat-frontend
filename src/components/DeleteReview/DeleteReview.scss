@@ -39,14 +39,14 @@
         align-items: center;
         min-width: 5.563rem;
         padding: 0.25rem 1rem;
-        border: 2px solid #c14438;
+        border: 2px solid $red-cancel;
         border-radius: 10px;
         color: $white-linen;
-        background-color: #c14438;
+        background-color: $red-cancel;
 
         &:hover {
-          background-color: darken(#c14438, 10%);
-          border: 2px solid darken(#c14438, 10%)
+          background-color: darken($red-cancel, 10%);
+          border: 2px solid darken($red-cancel, 10%)
         }
       }
     
