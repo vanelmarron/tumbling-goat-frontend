@@ -3,16 +3,7 @@
 @use "../../styles/partials/variables" as *;
 
 .login {
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-  margin: auto;
-  margin-top: 25%;
-  background-color: $white-linen;
-  border: 2px solid $jaffa;
-  border-radius: 20px;
-  padding: 2rem;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  @include modal-design;
   
   &__title {
     padding-bottom: 2rem;
@@ -35,26 +26,20 @@
   }
 
   &__submit {
-    @include button;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-center;
     min-width: 5.563rem;
     border: 2px solid $jaffa;
     color: $white-linen;
     background-color: $jaffa;
 
     &:hover {
-      background-color: darken(#dc8150, 10%);
-      border: 2px solid darken(#dc8150, 10%);
+      background-color: darken($jaffa, 10%);
+      border: 2px solid darken($jaffa, 10%);
     }
   }
 
   &__cancel {
-    @include button;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-center;
     min-width: 2.625rem;
     border: 2px solid $jaffa;
     color: $jaffa;

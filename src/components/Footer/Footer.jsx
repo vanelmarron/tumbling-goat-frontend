@@ -9,18 +9,26 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer__logo-wrapper">
+        <Link to="/">
         <img
           src={tumblingGoat}
           alt="Tumbling Goat Logo"
           className="footer__logo footer__logo"
         />
+        </Link>
       </div>
       <div className="footer__content-wrapper">
         <div className="footer__pages">
           <ul className="footer-list">
+            <Link to ="/products">
             <li className="footer-list__item">Shop</li>
-            <li className="footer-list__item">Our Story</li>
+            </Link>
+            <Link to="/">
+            <li className="footer-list__item">About</li>
+            </Link>
+            <Link to="/find-us">
             <li className="footer-list__item">Find Us</li>
+            </Link>
           </ul>
         </div>
         <div className="terms">

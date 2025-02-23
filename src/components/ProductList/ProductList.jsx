@@ -1,9 +1,10 @@
 import "./ProductList.scss";
-import ProductListCard from "../ProductListCard/ProductListCard";
-import AddedToCart from "../AddedToCart/AddedToCart";
 import { useState } from "react";
 import ReactModal from "react-modal";
 ReactModal.setAppElement("#root");
+
+import AddedToCart from "../../modals/AddedToCart/AddedToCart";
+import ProductListCard from "../ProductListCard/ProductListCard";
 
 function ProductList({ products, baseURL }) {
   const [modalProduct, setModalProduct] = useState(null);

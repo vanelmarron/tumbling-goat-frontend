@@ -3,15 +3,13 @@
 @use "../../styles/partials/variables" as *;
 
 .shop-card {
+  @include flex-center;
   background-color: $gold;
   border-radius: 10px;
   height: auto;
   padding: 1rem;
   margin: 1rem;
-  display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   text-align: center;
   gap: 1rem;
 
@@ -58,8 +56,7 @@
   }
 
   &__button {
-    display: flex;
-    justify-content: center;
+    @include flex-center;
     margin: 1rem auto;
     width: 8rem;
     border: 2px solid $coriander;

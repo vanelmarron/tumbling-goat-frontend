@@ -10,8 +10,8 @@ import deleteIcon from "../../assets/images/delete_24.svg";
 import starEmpty from "../../assets/images/star_24.svg";
 import starFilled from "../../assets/images/star-filled_24.svg";
 
-import EditReview from "../EditReview/EditReview";
-import DeleteReview from "../DeleteReview/DeleteReview";
+import EditReview from "../../modals/EditReview/EditReview";
+import DeleteReview from "../../modals/DeleteReview/DeleteReview";
 
 function ReviewCard({ review, baseURL, product, getReviews }) {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);

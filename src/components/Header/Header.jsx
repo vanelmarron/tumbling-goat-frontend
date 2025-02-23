@@ -6,8 +6,8 @@ import Modal from "react-modal";
 Modal.setAppElement("#root");
 
 import HeaderMenu from "../HeaderMenu/HeaderMenu";
-import Login from "../Login/Login";
-import SignUp from "../SignUp/SignUp";
+import Login from "../../modals/Login/Login";
+import SignUp from "../../modals/SignUp/SignUp";
 
 import menuIcon from "../../assets/images/menu_24.svg";
 import tumblingGoatLogo from "../../assets/logos/TumblingGoat_logo_orange.png";

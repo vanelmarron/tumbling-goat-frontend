@@ -31,16 +31,14 @@
 
   &__front,
   &__back {
+    @include flex-center;
     width: 100%;
     height: 100%;
     position: absolute;
     backface-visibility: hidden;
     border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    display: flex;
+    box-shadow: $box-shadow;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     padding: 1.5rem;
     text-align: center;
   }
@@ -55,10 +53,8 @@
   }
 
   &__front-content {
-    display: flex;
+    @include flex-center;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     gap: 2rem;
 
     @include tablet {
@@ -67,10 +63,8 @@
   }
 
   &__profile {
-    display: flex;
+    @include flex-center;
     position: relative;
-    justify-content: center;
-    align-items: center;
     width: 10rem;
     height: 10rem;
     margin-bottom: 1rem;
@@ -130,7 +124,7 @@
   &__back {
     display: flex;
     padding: 1rem 2rem;
-    gap: 2rem;
+    gap: 1rem;
   }
 
   &__text {
@@ -138,10 +132,8 @@
   }
 
   &__quote {
-    background-color: $jaffa;
-    color: $white-linen;
-    border-radius: 10px;
-    padding: 1rem;
+    font-family: "Lora";
+    font-style: italic;
     width: 80%;
   }
 }

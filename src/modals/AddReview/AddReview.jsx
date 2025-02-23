@@ -6,6 +6,22 @@ import axios from "axios";
 import starFilled from "../../assets/images/star-filled_24.svg";
 import starEmpty from "../../assets/images/star_24.svg";
 
+const provinces = [
+  "Alberta",
+  "British Columbia",
+  "Manitoba",
+  "New Brunswick",
+  "Newfoundland and Labrador",
+  "Nova Scotia",
+  "Ontario",
+  "Prince Edward Island",
+  "Quebec",
+  "Saskatchewan",
+  "Yukon",
+  "Northwest Territories",
+  "Nunavut",
+];
+
 function AddReview({ onClose, baseURL, product, getReviews }) {
   const [name, setName] = useState("");
   const [city, setCity] = useState("");
@@ -23,7 +39,7 @@ function AddReview({ onClose, baseURL, product, getReviews }) {
     }
 
     const newReview = {
-      reviewId: uuidv4(), 
+      reviewId: uuidv4(),
       name: name,
       city: city,
       province: province,
@@ -32,12 +48,16 @@ function AddReview({ onClose, baseURL, product, getReviews }) {
       timestamp: Date.now(),
     };
     try {
-      const response = await axios.post(`${baseURL}/api/products/${product.id}/reviews`, newReview, { headers: { "Content-Type": "application/json" } });
+      const response = await axios.post(
+        `${baseURL}/api/products/${product.id}/reviews`,
+        newReview,
+        { headers: { "Content-Type": "application/json" } }
+      );
       console.log("Review posted successfully:", response.data);
 
       getReviews();
       onClose();
-    } catch(error) {
+    } catch (error) {
       console.error("Error posting review:", error);
     }
   };
@@ -77,16 +97,22 @@ function AddReview({ onClose, baseURL, product, getReviews }) {
             <label htmlFor="province" className="add-review__label">
               Province:
             </label>
-            <input
-              type="text"
+            <select
               id="province"
-              className="add-review__input"
               name="province"
-              placeholder="Province"
+              className="add-review__input add-review__input--province"
               value={province}
               onChange={(event) => setProvince(event.target.value)}
               required
-            />
+            >
+              <option className="province-default" value="" disabled>
+              </option>
+              {provinces.map((province) => (
+                <option key={province} value={province}>
+                  {province}
+                </option>
+              ))}
+            </select>
           </div>
           <div className="add-review__bottom">
             <label htmlFor="review" className="add-review__label">
@@ -118,7 +144,7 @@ function AddReview({ onClose, baseURL, product, getReviews }) {
           </div>
         </div>
         <div className="add-review__buttons">
-        <button
+          <button
             type="button"
             className="add-review__cancel"
             onClick={onClose}
