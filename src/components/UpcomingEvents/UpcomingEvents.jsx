@@ -9,7 +9,7 @@ function UpcomingEvents() {
     <section className="events">
       <h2 className="events__title">Upcoming Events</h2>
       <ul className="events__list">
-        {/* Map through list of events */}
+        {/* Map through list of events in V2*/}
       </ul>
       <div className="events__empty">
       <p className="events__item">No events scheduled right now, but we’d love to keep you in the loop. </p>

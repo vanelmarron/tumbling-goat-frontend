@@ -9,9 +9,9 @@ import lessIcon from "../../assets/images/remove_24.svg";
 import moreIcon from "../../assets/images/add_24.svg";
 
 import ReviewCard from "../ReviewCard/ReviewCard";
-import AddReview from "../AddReview/AddReview";
-import StockModal from "../StockModal/StockModal";
-import AddedToCart from "../AddedToCart/AddedToCart"
+import AddReview from "../../modals/AddReview/AddReview";
+import Stock from "../../modals/Stock/Stock";
+import AddedToCart from "../../modals/AddedToCart/AddedToCart";
 import { ShopContext } from "../../context/shop-context";
 
 function SingleProductCard() {
@@ -166,7 +166,7 @@ function SingleProductCard() {
           onRequestClose={handleCloseStockModal}
           className="modal"
         >
-          <StockModal
+          <Stock
             product={product}
             handleCloseStockModal={handleCloseStockModal}
           />

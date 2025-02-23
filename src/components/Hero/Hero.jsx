@@ -3,7 +3,6 @@ import React from "react";
 import {useLocation} from "react-router-dom"
 
 import tumblingGoat from "../../assets/images/chevre_1.png";
-import shape from "../../assets/images/forme_1.png"
 
 function Hero() {
 

@@ -10,7 +10,7 @@
   margin: 1rem;
   height: auto;
   max-width: 1216px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: $box-shadow;
   border-radius: 10px;
   padding: 1rem;
   background-color: $jaffa;
@@ -29,9 +29,7 @@
 }
 
   &__wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-center;
     flex-direction: column;
     padding: 1rem;
     gap: 1rem;
@@ -52,28 +50,25 @@
 
   &__bottom {
     flex-grow: 1;
-    display: flex;
+    @include flex-center;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     gap: 2rem;
     width: 100%;
     padding: 1rem;
   }
 
   &__text {
-    font-size: 1.2rem;
+    @include flex-center;
+    font-size: 1rem;
     color: $white-linen;
     height: auto;
     width: 100%;
-    display: flex;
     text-align: center;
-    justify-content: center;
-    align-items: center;
     padding: 1rem;
 
     @include tablet {
       height: 10rem;
+      font-size: 1.25rem;
     }
   }
 
@@ -92,9 +87,7 @@
   }
 
   &__actions {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-center;
     gap: 0.5rem;
     padding: 1rem;
   }

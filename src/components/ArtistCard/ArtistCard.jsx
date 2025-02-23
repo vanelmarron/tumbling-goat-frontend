@@ -34,8 +34,8 @@ function ArtistCard() {
             />
           </div>
           <div className="artist-card__front-text">
-          <h2 className="artist-card__learn-title">About me</h2>
-          <p className="artist-card__intro">Introducing Marie-Ève</p>
+          <h2 className="artist-card__learn-title">About</h2>
+          <p className="artist-card__intro">Meet the artist</p>
           <button className="artist-card__learn-more">Learn More</button>
           </div>
           </div>
@@ -44,17 +44,19 @@ function ArtistCard() {
           <p className="artist-card__text">
             Originally from Amqui, Quebec, Marie-Ève started making pottery shortly after
             moving to Revelstoke, BC in 2020. Pottery quickly became a passion
-            for her since she likes every step of the process. While he
-            professional background is in social work, she now dedicates most of
-            her time to pottery.
-          </p>
+            for her since she likes every step of the process. </p>
           <p className="artist-card__quote">
             “Transforming clay into objects that I use daily brings me pure
             happiness. My favorite thing about pottery is the clay itself. I
             enjoy the feeling on my hands and its colour at every stage of the
-            process. I love to expose a lot of bare clay on the outside of my
+            process. 
+            I love to expose a lot of bare clay on the outside of my
             pieces and to keep the design simple in the goal to highlight the
             natural beauty of the raw material.”
+          </p>
+          <p className="artist-card__text">While he
+            professional background is in social work, she now dedicates most of
+            her time to pottery.
           </p>
         </div>
       </div>

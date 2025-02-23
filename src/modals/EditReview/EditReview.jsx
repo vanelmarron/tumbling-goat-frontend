@@ -4,6 +4,19 @@ import { useState } from "react";
 import starEmpty from "../../assets/images/star_24.svg";
 import starFilled from "../../assets/images/star-filled_24.svg";
 
+const provinces = [
+  "Alberta",
+  "British Columbia",
+  "Manitoba",
+  "New Brunswick",
+  "Newfoundland and Labrador",
+  "Nova Scotia",
+  "Ontario",
+  "Prince Edward Island",
+  "Quebec",
+  "Saskatchewan",
+];
+
 function EditReview({ review, onClose, handleEditReview }) {
   const [updatedReview, setUpdatedReview] = useState({
     name: review.name,
@@ -62,7 +75,20 @@ function EditReview({ review, onClose, handleEditReview }) {
             <label htmlFor="province" className="edit-review__label">
               Province:
             </label>
-            <input
+            <select
+              id="province"
+              name="province"
+              className="edit-review__input"
+              value={updatedReview.province}
+              onChange={handleChange}
+              required
+            >
+              <option value="" disabled>Select a province</option>
+              {provinces.map((province) => (
+                <option key={province} value={province}>{province}</option>
+              ))}
+            </select>
+            {/* <input
               type="text"
               id="province"
               className="edit-review__input"
@@ -71,7 +97,7 @@ function EditReview({ review, onClose, handleEditReview }) {
               value={updatedReview.province}
               onChange={handleChange}
               required
-            />
+            /> */}
           </div>
           <div className="edit-review__bottom">
             <label htmlFor="review" className="edit-review__label">

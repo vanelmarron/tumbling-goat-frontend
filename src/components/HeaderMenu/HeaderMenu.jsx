@@ -5,8 +5,8 @@ import "./HeaderMenu.scss";
 import Modal from "react-modal";
 Modal.setAppElement("#root");
 
-import Login from "../Login/Login";
-import SignUp from "../SignUp/SignUp";
+import Login from "../../modals/Login/Login";
+import SignUp from "../../modals/SignUp/SignUp";
 
 function HeaderMenu({ setSearchItem, setSelectedFilter, handleAccountClick, isModalOpen, closeModal, isSignUp, setIsSignUp }) {
 

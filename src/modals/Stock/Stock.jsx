@@ -1,8 +1,8 @@
-import "./StockModal.scss"
+import "./Stock.scss"
 import React from "react";
 import { Link } from "react-router-dom";
 
-function StockModal({product, handleCloseStockModal}) {
+function Stock({product, handleCloseStockModal}) {
   return (
     <div className="stock">
       <h2 className="stock__title">Limited Stock Available</h2>
@@ -22,4 +22,4 @@ function StockModal({product, handleCloseStockModal}) {
   );
 }
 
-export default StockModal;
+export default Stock;

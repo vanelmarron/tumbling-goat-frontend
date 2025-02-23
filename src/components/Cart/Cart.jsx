@@ -49,12 +49,6 @@ function Cart() {
         </div>
       ) : (
         <>
-      {/* <div className="cart__header">
-        <p className="cart__header-item">Item</p>
-        <p className="cart__header-price">Price</p>
-        <p className="cart__header-qty">Quantity</p>
-        <p className="cart__header-total">Total</p>
-      </div> */}
       <ul className="cart__list">
         {Object.values(cartItems).map((product) => (
           <CartItem

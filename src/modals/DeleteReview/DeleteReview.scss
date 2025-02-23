@@ -1,0 +1,50 @@
+@use "../../styles/partials/global";
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.delete-review {
+  @include modal-design;
+
+  &__title {
+    padding-bottom: 2rem;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    gap: 1rem;
+
+    @include tablet {
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+  }
+
+  &__submit {
+    @include flex-center;
+    min-width: 5.563rem;
+    border: 2px solid $red-cancel;
+    color: $white-linen;
+    background-color: $red-cancel;
+
+    &:hover {
+      background-color: darken($red-cancel, 10%);
+      border: 2px solid darken($red-cancel, 10%);
+    }
+  }
+
+  &__cancel {
+    @include flex-center;
+    min-width: 2.625rem;
+    border: 2px solid $jaffa;
+    color: $jaffa;
+    background-color: $white-linen;
+
+    &:hover {
+      background-color: darken($white-linen, 10%);
+      border: 2px solid darken($white-linen, 10%);
+    }
+  }
+}
