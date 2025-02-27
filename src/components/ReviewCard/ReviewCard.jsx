@@ -36,7 +36,6 @@ function ReviewCard({ review, baseURL, product, getReviews }) {
       );
 
       if (response.status === 200) {
-        console.log("Review updated successfully", response.data);
         getReviews();
         setIsEditModalOpen(false);
       }

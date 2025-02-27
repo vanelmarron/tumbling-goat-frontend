@@ -1,30 +1,29 @@
 import "./Cart.scss";
-import { useContext, useState, useEffect } from "react";
+import { useContext } from "react";
 import { ShopContext } from "../../context/shop-context";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 import CartItem from "../CartItem/CartItem";
 
-const baseURL = import.meta.env.VITE_API_URL;
+// const baseURL = import.meta.env.VITE_API_URL;
 
 function Cart() {
 
   const navigate = useNavigate();
   const { cartItems } = useContext(ShopContext);
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    const getAllProducts = async () => {
-      try {
-        const response = await axios.get(`${baseURL}/api/products`);
-        setProducts(response.data);
-      } catch (error) {
-        console.log("Error fetching all products : ", error);
-      }
-    };
-    getAllProducts();
-  }, []);
+  // useEffect(() => {
+  //   const getAllProducts = async () => {
+  //     try {
+  //       const response = await axios.get(`${baseURL}/api/products`);
+  //       setProducts(response.data);
+  //     } catch (error) {
+  //       console.log("Error fetching all products : ", error);
+  //     }
+  //   };
+  //   getAllProducts();
+  // }, []);
 
   const subAmount = Object.values(cartItems).reduce(
     (total, product) => total + product.price * product.quantity,

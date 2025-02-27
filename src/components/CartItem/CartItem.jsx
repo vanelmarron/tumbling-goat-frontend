@@ -1,5 +1,5 @@
 import "./CartItem.scss";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
 import deleteIcon from "../../assets/images/delete_24.svg";
 import lessIcon from "../../assets/images/remove_24.svg";

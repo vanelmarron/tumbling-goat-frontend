@@ -88,16 +88,6 @@ function EditReview({ review, onClose, handleEditReview }) {
                 <option key={province} value={province}>{province}</option>
               ))}
             </select>
-            {/* <input
-              type="text"
-              id="province"
-              className="edit-review__input"
-              name="province"
-              placeholder={review.province}
-              value={updatedReview.province}
-              onChange={handleChange}
-              required
-            /> */}
           </div>
           <div className="edit-review__bottom">
             <label htmlFor="review" className="edit-review__label">

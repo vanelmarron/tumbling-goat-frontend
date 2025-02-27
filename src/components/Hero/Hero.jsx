@@ -1,6 +1,6 @@
 import "./Hero.scss";
 import React from "react";
-import {useLocation} from "react-router-dom"
+import { useLocation } from "react-router-dom"
 
 import tumblingGoat from "../../assets/images/chevre_1.png";
 
