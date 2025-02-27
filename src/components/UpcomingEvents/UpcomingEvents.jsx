@@ -2,8 +2,6 @@ import "./UpcomingEvents.scss"
 import React from 'react'
 import {Link} from "react-router-dom";
 
-import instagramIcon from "../../assets/images/instagram.svg"
-
 function UpcomingEvents() {
   return (
     <section className="events">

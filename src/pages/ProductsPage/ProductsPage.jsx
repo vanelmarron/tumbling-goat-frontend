@@ -33,7 +33,7 @@ function ProductsPage({ searchItem, selectedFilter }) {
               const response = await axios.get(`${baseURL}/api/products`)
               setProducts(response.data);
           } catch(error) {
-              console.log("Error fetching all products : ", error)
+              console.error("Error fetching all products : ", error)
           }
       }
       getAllProducts();

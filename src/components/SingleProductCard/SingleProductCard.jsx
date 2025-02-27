@@ -45,7 +45,7 @@ function SingleProductCard() {
         setReviews(response.data.reverse());
       }
     } catch (error) {
-      console.log("Error fetching product reviews", error);
+      console.error("Error fetching product reviews", error);
     }
   };
 
@@ -55,7 +55,7 @@ function SingleProductCard() {
         const response = await axios.get(`${baseURL}/api/products/${itemId}`);
         setProduct(response.data);
       } catch (error) {
-        console.log("Error fetching the products details: ", error);
+        console.error("Error fetching the products details: ", error);
       }
     };
     if (itemId) {
